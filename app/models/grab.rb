@@ -5,20 +5,35 @@ class Grab < ActiveRecord::Base
   # RUN THIS IN CONSOLE AS Grab.in_theatres
   def self.in_theatres
     response = HTTParty.get(MOVIE_LIST+'/in_theaters.json?apikey='+KEY)
-    
-    puts "#{response['total']} MOVIES #################################" # return the total number of items
-#    puts "#{response['movies'][0]['id']} FIRST ID!"
-    
-    movies = response['movies']
+    movies = response["movies"]
 
+    puts "create a blank array:\n"
+    list = [] # create the movie array
+    
     movies.each do |movie|
-      puts "TITLE: #{movie['title']}, Score: #{movie['ratings']['critics_score']}"
+     title = movie['title']
+     score = movie['ratings']['critics_score']
+     poster_url = movie['posters']['detailed']
+     
+     list += [[score,title,poster_url]] 
+     
+     puts "Movie: #{title}, Score: #{score}"
     end
+    
+    puts "\n\n ===================================================================== \n\n"
+    puts "print out the movie array:\n"
+    puts list.to_s # print out the movie array
+
+    puts "\n\n ===================================================================== \n\n"
+    puts "sort the movie array:\n"
+    sorted = list.sort {|x,y| y[0] <=> x[0] }
+    puts sorted.to_s
+
+    puts "\n\n ===================================================================== \n\n"
+  end
 
     # I need to return all response['movies'] items, and RE-SORT by either critic or audience score (probably audience?)
     # AT THAT POINT I can re-output or re-assign variables to them as first second third, etc.
-
-  end
 
   def debug
     puts response.body    

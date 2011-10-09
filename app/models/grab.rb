@@ -23,13 +23,25 @@ class Grab < ActiveRecord::Base
     puts "\n\n ===================================================================== \n\n"
     puts "print out the movie array:\n"
     puts list.to_s # print out the movie array
-
-    puts "\n\n ===================================================================== \n\n"
+    
+    puts "\n\n ===================================================================== \n\n"    
     puts "sort the movie array:\n"
-    sorted = list.sort {|x,y| y[0] <=> x[0] }
+    #sorted = list.sort {|x,y| y[0] <=> x[0] }
+    
+    sorted = list.sort_by{|score| score*+1}.reverse
+    
     puts sorted.to_s
 
     puts "\n\n ===================================================================== \n\n"
+    puts "Watch this: #{sorted.first[1]} with a score of #{sorted.first[0]}.\nGet the poster at: #{sorted.first[2]}\n\n"
+    
+    puts "2nd place: #{sorted.second[1]}"
+    puts "3rd place: #{sorted.third[1]}"
+    puts "4th: #{sorted.fourth[1]}"
+    puts "5th: #{sorted.fifth[1]}"
+
+    puts "\n\n ===================================================================== \n\n"
+
   end
 
     # I need to return all response['movies'] items, and RE-SORT by either critic or audience score (probably audience?)

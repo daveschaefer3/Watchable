@@ -4,11 +4,11 @@ The goal for this app is to suggest current movies that critics and fans agree a
   
 == Riggings
 
-Rails 3.1, SCSS, [HAML][0], [Rotten Tomatoes API][1], [BadFruit gem][2]
+Rails 3.1, SCSS, [HAML][], [Rotten Tomatoes API][], [BadFruit gem][]
 
-[0]: http://haml-lang.com/
-[1]: http://developer.rottentomatoes.com/
-[2]: https://github.com/brianmichel/BadFruit
+[HAML]: http://haml-lang.com/
+[Rotten Tomatoes API]: http://developer.rottentomatoes.com/
+[BadFruit gem]: https://github.com/brianmichel/BadFruit
 
 == Humans.txt  
 

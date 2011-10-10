@@ -1,11 +1,10 @@
 <div id="winner">
-  <h1><%= @title %></h1>
   <div class="info-area">
     <div id="winner-poster"><%= link_to image_tag(@poster), @imdb %></div>
-    <div class="description">
+    <div class="winner-description">
+      <h1 id="winner-title"><%= @title %></h1>
       <p><%= @desc %></p>
-      <span>Score: <%= @score %></span>
-      <span><%= link_to "IMDB", @imdb %></span>
+      <span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @imdb %></span> <span>Score: <%= @score %></span>
     </div>
 </div>
 
@@ -16,7 +15,7 @@
     <h1><%= @second_title %></h1>
     <div class="description">
       <p><%= @second_desc %></p>
-      <span><%= link_to "IMDB", @second_imdb %></span> / <span>Score: <%= @second_score %></span>
+      <span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @second_imdb %></span> <span>Score: <%= @second_score %></span>
     </div>
   </div>
 
@@ -25,7 +24,7 @@
     <h1><%= @third_title %></h1>
     <div class="description">
       <p><%= @third_desc %></p>
-      <span><%= link_to "IMDB", @third_imdb %></span> / <span>Score: <%= @third_score %></span>
+      <span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @third_imdb %></span> <span>Score: <%= @third_score %></span>
     </div>
   </div>
 
@@ -34,7 +33,7 @@
     <h1><%= @fourth_title %></h1>
     <div class="description">
       <p><%= @fourth_desc %></p>
-      <span><%= link_to "IMDB", @fourth_imdb %></span> / <span>Score: <%= @fourth_score %></span>
+      <span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @fourth_imdb %></span> <span>Score: <%= @fourth_score %></span>
     </div>
   </div>
 
@@ -43,7 +42,7 @@
     <h1><%= @fifth_title %></h1>
     <div class="description">
       <p><%= @fifth_desc %></p>
-      <span><%= link_to "IMDB", @fifth_imdb %></span> / <span>Score: <%= @fifth_score %></span>
+      <span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @fifth_imdb %></span> <span>Score: <%= @fifth_score %></span>
     </div>
   </div>
 </div>

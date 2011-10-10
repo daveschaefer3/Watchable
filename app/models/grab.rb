@@ -20,7 +20,7 @@ class Grab < ActiveRecord::Base
      title = movie['title']
      critics_score = movie['ratings']['critics_score']
      audience_score = movie['ratings']['audience_score']
-     poster_url = movie['posters']['original']
+     poster_url = movie['posters']['detailed'] # movie['posters']['original']
      desc = movie['critics_consensus']
      date = movie['release_dates']['theater']
      imdb = "http://www.imdb.com/title/tt"+movie['alternate_ids']['imdb']+"/combined"

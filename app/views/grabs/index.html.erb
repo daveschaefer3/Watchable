@@ -1,11 +1,11 @@
 <div id="winner">
   <div class="info-area">
+    <h1 id="winner-title"><%= @title %></h1>
     <div id="winner-poster"><%= link_to image_tag(@poster), @imdb %></div>
     <div class="winner-description">
-      <h1 id="winner-title"><%= @title %></h1>
       <p><%= @desc %></p>
       <span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @imdb %></span> <span>Score: <%= @score %></span>
-    </div>
+    </div>    
 </div>
 
 

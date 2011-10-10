@@ -1,0 +1,54 @@
+/*
+ * This is a manifest file that'll automatically include all the stylesheets available in this directory
+ * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
+ * the top of the compiled file, but it's generally better to create a new file per style scope.
+ *= require_self
+ *= require_tree . 
+*/
+
+$gold : #FBD400;
+
+
+h1 {display: inline;}
+.social-stuff {display: inline; margin-left: 25px; background-color: #333;}
+
+#winner {display: block; clear: both;}
+#winner h1 {font-size: 1.5em;}
+#winner > .info-area {width: 600px;}
+#winner > .info-area > .description p {font-size:1.25em; line-height: 1.5em;}
+#winner #winner-poster img {
+  -moz-box-shadow: 0 0 10px #000000;
+  -webkit-box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 10px #000000;
+  border: 10px solid $gold;
+  margin-left: 5px;
+  width: 300px;
+  }
+#winner #winner-poster img:hover {
+  border: 10px solid lighten($gold, 19%);
+  }
+  
+.label {}
+.info {}
+.description {}
+  
+#runners-up {display: block; width: 800px; clear: both; font-size: 0.7em;}
+#runners-up h1 {font-weight: normal; font-size: 2em;}
+#runners-up > .info-area {width: 400px; height: 200px;}
+#runners-up #runners-up-poster img {
+  -moz-box-shadow: 0 0 10px #000000;
+  -webkit-box-shadow: 0 0 10px #000000;
+  box-shadow: 0 0 10px #000000;
+  border: 5px solid $gold;
+  float: right;
+  margin-left: 5px;
+  width: 100px;
+  clear: both;
+  }
+#runners-up #runners-up-poster img:hover {
+  border: 5px solid lighten($gold, 19%);
+  float: right;
+  margin-left: 5px;
+  width: 100px;
+  clear: both;
+    }

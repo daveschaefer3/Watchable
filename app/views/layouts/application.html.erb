@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Watchthisnotthat</title>
+  <title>Watchable</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
 </head>
 <body>
-
+  <h1>Watchable</h1> <div class="social-stuff">Tweet this | Share this</div>
+  <h2>Don't know what to go see? Any of these should be worth your time.</h2>
+  <hr />
+  
 <%= yield %>
 
+  <div id="footer">
+    <p>Made for you by Doug. This website updates whenever good movies are released.</p>
+  </div>
 </body>
 </html>

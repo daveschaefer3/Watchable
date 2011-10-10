@@ -1,0 +1,48 @@
+<div id="winner">
+  <h1><%= @title %></h1>
+  <div class="info-area">
+    <div id="winner-poster"><%= link_to image_tag(@poster), @imdb %></div>
+    <div class="description">
+      <p><%= @desc %></p>
+      <p><span><%= link_to "More info", @imdb %></span> <span>Average score: <%= @score %></span></p>
+    </div>
+</div>
+
+
+<div id="runners-up">
+  <div class="info-area">
+    <div id="runners-up-poster"><%= link_to image_tag(@second_poster), @second_imdb %></div>
+    <h1><%= @second_title %></h1>
+    <div class="description">
+      <p><%= @second_desc %></p>
+      <p><span><%= link_to "More info", @second_imdb %></span> <span>Average score: <%= @second_score %></span></p>
+    </div>
+  </div>
+
+  <div class="info-area">
+    <div id="runners-up-poster"><%= link_to image_tag(@third_poster), @third_imdb %></div>
+    <h1><%= @third_title %></h1>
+    <div class="description">
+      <p><%= @third_desc %></p>
+      <p><span><%= link_to "More info", @third_imdb %></span> <span>Average score: <%= @third_score %></span></p>
+    </div>
+  </div>
+
+  <div class="info-area">
+    <div id="runners-up-poster"><%= link_to image_tag(@fourth_poster), @fourth_imdb %></div>
+    <h1><%= @fourth_title %></h1>
+    <div class="description">
+      <p><%= @fourth_desc %></p>
+      <p><span><%= link_to "More info", @fourth_imdb %></span> <span>Average score: <%= @fourth_score %></span></p>
+    </div>
+  </div>
+
+  <div class="info-area">
+    <div id="runners-up-poster"><%= link_to image_tag(@fifth_poster), @fifth_imdb %></div>
+    <h1><%= @fifth_title %></h1>
+    <div class="description">
+      <p><%= @fifth_desc %></p>
+      <p><span><%= link_to "More info", @fifth_imdb %></span> <span>Average score: <%= @fifth_score %></span></p>
+    </div>
+  </div>
+</div>

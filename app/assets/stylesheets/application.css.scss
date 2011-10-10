@@ -66,8 +66,11 @@ h2 {
   display: block;
   font-family: museo-slab, verdana, sans-serif;
   font-weight: 700;
-  font-size: 1em;
+  font-size: 0.7em;
   font-style: normal;
+  position: relative;
+  left: 15px; top: 5px;
+  margin-bottom: 50px;
   }
 
 .winner-description p {padding-left: 20px; line-height: 1.75em;}

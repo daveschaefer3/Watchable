@@ -1,7 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Watchable</title>
+  <title>Watchable - Movies worth watching</title>
+  <link rel="canonical" href="http://watchable.heroku.com/" itemprop="url"/>
+  <meta name="description" content="Watchable - The best-reviewed movies. <%= @title+" review, "+@second_title+" review, "+@third_title+" review, "+@fourth_title+" review, "+@fifth_title+" review, "+@sixth_title+" review, "+@seventh_title+" review" %>" />
   <%= stylesheet_link_tag    "application" %>
   <script type="text/javascript" src="http://use.typekit.com/gqd6bwq.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -9,15 +11,15 @@
 <body>
   <div id="header">
     <h1>Watchable</h1>
-    <h2>Movies that should be worth your time.</h2>
+    <h2>Movies worth watching.</h2>
   </div>
   
-<%= yield %>
+  <%= yield %>
 
   <div id="footer">
     <p><a href="http://dougstewart.org/">Made for you by Doug</a>. This website updates all the damn time.</p>
   </div>
-  
+
   <script>
     var _gaq=[['_setAccount','UA-5771210-1'],['_trackPageview', 'Watchable.heroku.com']];
     (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;

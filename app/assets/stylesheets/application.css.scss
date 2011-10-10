@@ -56,11 +56,13 @@ h1 {
   }
 h1#winner-title {font-style: normal;}
 h2 {
+  font-family: museo-slab, verdana, sans-serif;
+  
   display: inline;
   padding-left: 25px;
-  font-size: 0.75em;
+  font-size: 0.85em;
   font-style: normal;
-  font-weight: 300;
+  font-weight: 700;
 }
 #footer {
   display: block;
@@ -73,9 +75,17 @@ h2 {
   margin-bottom: 50px;
   }
 
-.winner-description p {padding-left: 20px; line-height: 1.75em;}
-#winner-title {font-size: 1.5em; font-weight: bold;}
-#winner > .info-area {  
+.winner-description p {padding-left: 20px; line-height: 1.4em; font-weight: bold;}
+#winner-title {font-size: 1.4em; font-weight: bold;}
+#winner > .info-area {
+  background-color: darken($theatre_red, 15%);
+  background-image: -webkit-gradient(radial, 50% 100%,100,50% -50%,100, to(rgb(142, 26, 26)), from(rgb(70, 9, 10)));
+  background-image: -webkit-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(70, 9, 10));
+  background-image: -moz-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(70, 9, 10));
+  background-image: -o-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(70, 9, 10));
+  background-image: -ms-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(70, 9, 10));
+  background-image: radial-gradient(50% 0%, rgb(142, 26, 26), rgb(70, 9, 10));
+  
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -83,7 +93,6 @@ h2 {
   -moz-box-shadow: 0 0 15px #000000;
   -webkit-box-shadow: 0 0 15px #000000;
   box-shadow: 0 0 15px #000000;
-  background-color: darken($theatre_red, 25%);
   padding: 10px;
   margin: 20px;
 
@@ -110,17 +119,22 @@ h2 {
   border: 5px solid lighten($gold, 35%);
   }
   
-.label {}
-.info {}
-.description {}
-  
 .imdb {position:relative; top:5px;}
   
 #runners-up {
   font-size: 0.7em;
   }
-#runners-up h1 {font-weight: 700; font-style: normal; font-size: 2em;}
+#runners-up h1 {font-weight: 700; font-style: normal; font-size: 1.9em;}
 #runners-up > .info-area {
+  background-color: #8e1a1a;
+  background-image: -webkit-gradient(radial, 50% 100%,100,50% -50%,100, to(rgb(142, 26, 26)), from(rgb(13, 15, 17)));
+  background-image: -webkit-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
+  background-image: -moz-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
+  background-image: -o-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
+  background-image: -ms-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
+  background-image: radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
+
+
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;

@@ -11,6 +11,7 @@
 
 
 <div id="runners-up">
+  
   <div class="info-area">
     <div id="runners-up-poster"><%= link_to image_tag(@second_poster), @second_imdb %></div>
     <h1><%= @second_title %></h1>
@@ -46,4 +47,23 @@
       <span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @fifth_imdb %></span> <span>Score: <%= @fifth_score %></span>
     </div>
   </div>
+  
+  <div class="info-area">
+    <div id="runners-up-poster"><%= link_to image_tag(@sixth_poster), @sixth_imdb %></div>
+    <h1><%= @sixth_title %></h1>
+    <div class="description">
+      <p><%= @sixth_desc %></p>
+      <span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @sixth_imdb %></span> <span>Score: <%= @sixth_score %></span>
+    </div>
+  </div>
+  
+  <div class="info-area">
+    <div id="runners-up-poster"><%= link_to image_tag(@seventh_poster), @seventh_imdb %></div>
+    <h1><%= @seventh_title %></h1>
+    <div class="description">
+      <p><%= @seventh_desc %></p>
+      <span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @seventh_imdb %></span> <span>Score: <%= @seventh_score %></span>
+    </div>
+  </div>
+
 </div>

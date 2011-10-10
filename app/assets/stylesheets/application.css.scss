@@ -8,7 +8,7 @@
 
 $theatre_red: #811f1e;
 $creme: #FCF7EF;
-$gold : #FBD400;
+$border_color : #000;
 
 body {
   background:$theatre_red url('/assets/background-scales.gif');
@@ -101,10 +101,10 @@ h2 {
   }
 #winner > .info-area > .description p {font-size:1.25em; line-height: 1.5em;}
 #winner #winner-poster img {
-  -moz-box-shadow: 0 0 10px lighten($theatre_red, 30%);
-  -webkit-box-shadow: 0 0 10px lighten($theatre_red, 30%);
-  box-shadow: 0 0 10px lighten($theatre_red, 30%);
-  border: 5px solid $gold;
+  -moz-box-shadow: 0 0 20px lighten($theatre_red, 30%);
+  -webkit-box-shadow: 0 0 20px lighten($theatre_red, 30%);
+  box-shadow: 0 0 20px lighten($theatre_red, 30%);
+  border: 5px solid $border_color;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   border-radius: 3px;
@@ -113,13 +113,13 @@ h2 {
   float: left;
   }
 #winner #winner-poster img:hover {
-  -moz-box-shadow: 0 0 10px lighten($theatre_red, 50%);
-  -webkit-box-shadow: 0 0 10px lighten($theatre_red, 50%);
-  box-shadow: 0 0 10px lighten($theatre_red, 50%);
-  border: 5px solid lighten($gold, 35%);
+  -moz-box-shadow: 0 0 20px lighten($theatre_red, 50%);
+  -webkit-box-shadow: 0 0 20px lighten($theatre_red, 50%);
+  box-shadow: 0 0 20px lighten($theatre_red, 50%);
   }
   
 .imdb {position:relative; top:5px;}
+.score {opacity: 0.5; font-size: 0.8em; color: lighten($theatre_red, 45%)}
   
 #runners-up {
   font-size: 0.7em;
@@ -133,7 +133,6 @@ h2 {
   background-image: -o-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
   background-image: -ms-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
   background-image: radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
-
 
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -155,7 +154,7 @@ h2 {
   -moz-box-shadow: 0 0 10px lighten($theatre_red, 30%);
   -webkit-box-shadow: 0 0 10px lighten($theatre_red, 30%);
   box-shadow: 0 0 10px lighten($theatre_red, 30%);
-  border: 5px solid $gold;
+  border: 5px solid $border_color;
   float: right;
   margin-left: 5px;
   width: 100px;
@@ -165,7 +164,6 @@ h2 {
   -moz-box-shadow: 0 0 10px lighten($theatre_red, 50%);
   -webkit-box-shadow: 0 0 10px lighten($theatre_red, 50%);
   box-shadow: 0 0 10px lighten($theatre_red, 50%);
-  border: 5px solid lighten($gold, 35%);
   float: right;
   margin-left: 5px;
   width: 100px;

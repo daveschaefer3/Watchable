@@ -1,7 +1,7 @@
 <div id="winner">
   <div class="info-area">
     <h1 id="winner-title"><%= @title %></h1>
-    <div id="winner-poster"><%= link_to image_tag(@poster), @imdb %></div>
+    <div id="winner-poster"><%= link_to image_tag(@poster, :alt => @title), @imdb %></div>
     <div class="winner-description">
       <p><%= @desc %></p>
       <span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @imdb %></span> <span class="score"><%= @score %>% watchable</span>
@@ -13,7 +13,7 @@
 <div id="runners-up">
   
   <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@second_poster), @second_imdb %></div>
+    <div id="runners-up-poster"><%= link_to image_tag(@second_poster, :alt => @second_title), @second_imdb %></div>
     <h1><%= @second_title %></h1>
     <div class="description">
       <p><%= @second_desc %></p>
@@ -22,7 +22,7 @@
   </div>
 
   <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@third_poster), @third_imdb %></div>
+    <div id="runners-up-poster"><%= link_to image_tag(@third_poster, :alt => @third_title), @third_imdb %></div>
     <h1><%= @third_title %></h1>
     <div class="description">
       <p><%= @third_desc %></p>
@@ -31,7 +31,7 @@
   </div>
 
   <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@fourth_poster), @fourth_imdb %></div>
+    <div id="runners-up-poster"><%= link_to image_tag(@fourth_poster, :alt => @fourth_title), @fourth_imdb %></div>
     <h1><%= @fourth_title %></h1>
     <div class="description">
       <p><%= @fourth_desc %></p>
@@ -40,7 +40,7 @@
   </div>
 
   <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@fifth_poster), @fifth_imdb %></div>
+    <div id="runners-up-poster"><%= link_to image_tag(@fifth_poster, :alt => @fifth_title), @fifth_imdb %></div>
     <h1><%= @fifth_title %></h1>
     <div class="description">
       <p><%= @fifth_desc %></p>
@@ -49,7 +49,7 @@
   </div>
   
   <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@sixth_poster), @sixth_imdb %></div>
+    <div id="runners-up-poster"><%= link_to image_tag(@sixth_poster, :alt => @sixth_title), @sixth_imdb %></div>
     <h1><%= @sixth_title %></h1>
     <div class="description">
       <p><%= @sixth_desc %></p>
@@ -58,7 +58,7 @@
   </div>
   
   <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@seventh_poster), @seventh_imdb %></div>
+    <div id="runners-up-poster"><%= link_to image_tag(@seventh_poster, :alt => @seventh_title), @seventh_imdb %></div>
     <h1><%= @seventh_title %></h1>
     <div class="description">
       <p><%= @seventh_desc %></p>

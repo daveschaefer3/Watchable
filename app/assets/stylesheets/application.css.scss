@@ -6,13 +6,47 @@
  *= require_tree . 
 */
 
+$theatre_red: #811f1e;
+$creme: #FCF7EF;
 $gold : #FBD400;
 
 
-h1 {display: inline;}
-.social-stuff {display: inline; margin-left: 25px; background-color: #333;}
+body {
+  background:$theatre_red url('/assets/background-scales.gif');
+  color: $creme;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 18px;
+  }
 
-#winner {display: block; clear: both;}
+p, ol, ul, td {
+  line-height: 18px; }
+  
+ul {
+  list-style-type: none;
+  margin-left: -25px;
+}
+
+a {
+  color: #FC0;
+  &:visited {
+    color: #FC0; }
+  &:hover {
+    color: yellow;
+    } }
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px; } }
+
+#notice {
+  color: green; }
+
+
+
+h1 {display: inline;}
+
+#winner {}
 #winner h1 {font-size: 1.5em;}
 #winner > .info-area {width: 600px;}
 #winner > .info-area > .description p {font-size:1.25em; line-height: 1.5em;}
@@ -25,6 +59,9 @@ h1 {display: inline;}
   width: 300px;
   }
 #winner #winner-poster img:hover {
+  -moz-box-shadow: 0 0 20px #000000;
+  -webkit-box-shadow: 0 0 20px #000000;
+  box-shadow: 0 0 20px #000000;
   border: 10px solid lighten($gold, 19%);
   }
   
@@ -32,13 +69,26 @@ h1 {display: inline;}
 .info {}
 .description {}
   
-#runners-up {display: block; width: 800px; clear: both; font-size: 0.7em;}
+#runners-up {
+  width: 800px;
+  clear: both;
+  font-size: 0.7em;
+  }
 #runners-up h1 {font-weight: normal; font-size: 2em;}
-#runners-up > .info-area {width: 400px; height: 200px;}
+#runners-up > .info-area {
+  -moz-box-shadow: 0 0 6px #000000;
+  -webkit-box-shadow: 0 0 6px #000000;
+  box-shadow: 0 0 6px #000000;
+  width: 400px;
+  height: 170px;
+  background-color: darken($theatre_red, 20%);
+  padding: 10px;
+  margin: 20px;
+  }
 #runners-up #runners-up-poster img {
-  -moz-box-shadow: 0 0 10px #000000;
-  -webkit-box-shadow: 0 0 10px #000000;
-  box-shadow: 0 0 10px #000000;
+  -moz-box-shadow: 0 0 10px lighten($theatre_red, 30%);
+  -webkit-box-shadow: 0 0 10px lighten($theatre_red, 30%);
+  box-shadow: 0 0 10px lighten($theatre_red, 30%);
   border: 5px solid $gold;
   float: right;
   margin-left: 5px;
@@ -46,7 +96,10 @@ h1 {display: inline;}
   clear: both;
   }
 #runners-up #runners-up-poster img:hover {
-  border: 5px solid lighten($gold, 19%);
+  -moz-box-shadow: 0 0 10px lighten($theatre_red, 50%);
+  -webkit-box-shadow: 0 0 10px lighten($theatre_red, 50%);
+  box-shadow: 0 0 10px lighten($theatre_red, 50%);
+  border: 5px solid lighten($gold, 35%);
   float: right;
   margin-left: 5px;
   width: 100px;

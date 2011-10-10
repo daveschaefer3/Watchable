@@ -4,6 +4,7 @@ gem 'rails', '3.1.0'
 gem 'sqlite3'
 gem 'json'
 gem 'httparty'
+gem 'therubyracer'
 gem 'pg'
 
 # Gems used only for assets and not required

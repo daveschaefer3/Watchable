@@ -11,7 +11,8 @@
 <body>
   <div id="header">
     <h1>Watchable</h1>
-    <h2>Movies worth watching.</h2>
+    <h2>Movies worth watching, 
+    <%= Date.today.strftime("%b")+" "+Date.today.strftime(Date.today.strftime('%m').to_i.ordinalize) %>.</h2>
   </div>
   
   <%= yield %>

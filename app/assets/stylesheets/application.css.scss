@@ -1,6 +1,37 @@
 $theatre_red: #811f1e;
 $creme: #FCF7EF;
 $border_color : #000;
+@mixin radial-gradient($r1,$g1,$b1,$r2,$g2,$b2) {
+  background-image: -webkit-gradient(radial, 50% 100%,100,50% -50%,100, to(rgb($r1, $g1, $b1)), from(rgb($r2, $g2, $b2)));
+  background-image: -webkit-radial-gradient(50% 0%, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
+  background-image: -moz-radial-gradient(50% 0%, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
+  background-image: -o-radial-gradient(50% 0%, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
+  background-image: -ms-radial-gradient(50% 0%, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
+  background-image: radial-gradient(50% 0%, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
+}
+@mixin linear-gradient($r1,$g1,$b1,$r2,$g2,$b2) {
+  background-image: -webkit-gradient(linear, left top, left bottom, to(rgb($r1, $g1, $b1)), from(rgb($r2, $g2, $b2)));
+  background-image: -webkit-linear-gradient(top, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
+  background-image: -moz-linear-gradient(top, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
+  background-image: -o-linear-gradient(top, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
+  background-image: -ms-linear-gradient(top, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
+  background-image: linear-gradient(top, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
+}
+@mixin light-box-shadow($rad,$pct){
+-moz-box-shadow: 0 0 $rad lighten($theatre_red, $pct);
+-webkit-box-shadow: 0 0 $rad lighten($theatre_red, $pct);
+box-shadow: 0 0 $rad lighten($theatre_red, $pct);
+}
+@mixin box-shadow($rad,$color){
+-moz-box-shadow: 0 0 $rad $color;
+-webkit-box-shadow: 0 0 $rad $color;
+box-shadow: 0 0 $rad $color;
+}
+@mixin border-radius($px) {
+  -webkit-border-radius: $px;
+  -moz-border-radius: $px;
+  border-radius: $px;
+}
 
 body {
   background:$theatre_red url('/assets/background-scales.gif');
@@ -10,9 +41,6 @@ body {
   line-height: 24px;
   text-shadow: 0px 1px 3px darken($theatre_red, 50%);
   }
-
-p, ol, ul, td {
-  line-height: 18px; }
   
 ul {
   list-style-type: none;
@@ -26,14 +54,6 @@ a {
   &:hover {
     color: yellow;
     } }
-
-div {
-  &.field, &.actions {
-    margin-bottom: 10px; } }
-
-#notice {
-  color: green; }
-
 
 #header {
   position: relative;
@@ -49,11 +69,9 @@ h1 {
 h1#winner-title {font-style: normal;}
 h2 {
   font-family: museo-slab, verdana, sans-serif;
-  
   display: inline;
   padding-left: 25px;
   font-size: 0.9em;
-  font-style: normal;
   font-weight: 700;
 }
 #footer {
@@ -61,7 +79,6 @@ h2 {
   font-family: museo-slab, verdana, sans-serif;
   font-weight: 700;
   font-size: 0.7em;
-  font-style: normal;
   position: relative;
   left: 15px; top: 5px;
   margin-bottom: 50px;
@@ -71,93 +88,50 @@ h2 {
 #winner-title {font-size: 1.4em; font-weight: bold;}
 #winner > .info-area {
   background-color: darken($theatre_red, 15%);
-  background-image: -webkit-gradient(radial, 50% 100%,100,50% -50%,100, to(rgb(142, 26, 26)), from(rgb(70, 9, 10)));
-  background-image: -webkit-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(70, 9, 10));
-  background-image: -moz-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(70, 9, 10));
-  background-image: -o-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(70, 9, 10));
-  background-image: -ms-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(70, 9, 10));
-  background-image: radial-gradient(50% 0%, rgb(142, 26, 26), rgb(70, 9, 10));
-  
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  
-  -moz-box-shadow: 0 0 15px #000000;
-  -webkit-box-shadow: 0 0 15px #000000;
-  box-shadow: 0 0 15px #000000;
+  @include radial-gradient(142, 26, 26, 70, 9, 10);
+  @include border-radius(5px);
+  @include box-shadow(15px, #000);
   padding: 10px;
   margin: 20px;
-
   width: 500px;  
   height: 350px;
   }
 #winner > .info-area > .description p {font-size:1.25em; line-height: 1.5em;}
 #winner #winner-poster img {
-  -moz-box-shadow: 0 0 20px lighten($theatre_red, 30%);
-  -webkit-box-shadow: 0 0 20px lighten($theatre_red, 30%);
-  box-shadow: 0 0 20px lighten($theatre_red, 30%);
+  @include light-box-shadow(20px,30%);
+  @include border-radius(3px);
   border: 5px solid $border_color;
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
   width: 180px;
   margin: 5px 15px 5px 0px;
   float: left;
   }
 #winner #winner-poster img:hover {
-  -moz-box-shadow: 0 0 20px lighten($theatre_red, 50%);
-  -webkit-box-shadow: 0 0 20px lighten($theatre_red, 50%);
-  box-shadow: 0 0 20px lighten($theatre_red, 50%);
+  @include light-box-shadow(20px,50%);
   }
   
 .imdb {position:relative; top:4px; padding-right: 4px;}
 #winner .imdb {top:3px;}
 .score {
-  /* opacity: 0.5; */
   font-size: 0.8em;
   color: darken($creme, 5%);
   padding: 5px;
-  
   background-color: #a51c1a;
-  background-image: -webkit-gradient(linear, left top, left bottom, to(rgb(165, 28, 26)), from(rgb(72, 20, 21)));
-  background-image: -webkit-linear-gradient(top, rgb(165, 28, 26), rgb(72, 20, 21));
-  background-image: -moz-linear-gradient(top, rgb(165, 28, 26), rgb(72, 20, 21));
-  background-image: -o-linear-gradient(top, rgb(165, 28, 26), rgb(72, 20, 21));
-  background-image: -ms-linear-gradient(top, rgb(165, 28, 26), rgb(72, 20, 21));
-  background-image: linear-gradient(top, rgb(165, 28, 26), rgb(72, 20, 21));
+  @include linear-gradient(165, 28, 26, 72, 20, 21);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#a51c1a', EndColorStr='#481415');
-
-  -moz-box-shadow: 0 0 2px #000000;
-  -webkit-box-shadow: 0 0 2px #000000;
-  box-shadow: 0 0 2px #000000;
-
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  
+  @include box-shadow(2px, #000);
+  @include border-radius(5px);
   text-shadow: 0px 0px 5px #000;
   }
 
 #runners-up {
   font-size: 0.7em;
+  line-height: 18px;
   }
 #runners-up h1 {font-weight: 700; font-style: normal; font-size: 1.9em;}
 #runners-up > .info-area {
-  background-color: #8e1a1a;
-  background-image: -webkit-gradient(radial, 50% 100%,100,50% -50%,100, to(rgb(142, 26, 26)), from(rgb(13, 15, 17)));
-  background-image: -webkit-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
-  background-image: -moz-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
-  background-image: -o-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
-  background-image: -ms-radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
-  background-image: radial-gradient(50% 0%, rgb(142, 26, 26), rgb(13, 15, 17));
-
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
-  
-  -moz-box-shadow: 0 0 6px #000000;
-  -webkit-box-shadow: 0 0 6px #000000;
-  box-shadow: 0 0 6px #000000;
+  @include radial-gradient(142, 26, 26, 13, 15, 17);
+  @include border-radius(5px);
+  @include box-shadow(6px, #000);
   width: 400px;
   height: 170px;
   background-color: darken($theatre_red, 20%);
@@ -165,12 +139,8 @@ h2 {
   margin: 20px;
   }
 #runners-up #runners-up-poster img {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  border-radius: 3px;
-  -moz-box-shadow: 0 0 10px lighten($theatre_red, 30%);
-  -webkit-box-shadow: 0 0 10px lighten($theatre_red, 30%);
-  box-shadow: 0 0 10px lighten($theatre_red, 30%);
+  @include border-radius(3px);
+  @include box-shadow(10px, lighten($theatre_red, 30%));
   border: 5px solid $border_color;
   float: right;
   margin-left: 5px;
@@ -178,9 +148,7 @@ h2 {
   clear: both;
   }
 #runners-up #runners-up-poster img:hover {
-  -moz-box-shadow: 0 0 10px lighten($theatre_red, 50%);
-  -webkit-box-shadow: 0 0 10px lighten($theatre_red, 50%);
-  box-shadow: 0 0 10px lighten($theatre_red, 50%);
+  @include box-shadow(10px, lighten($theatre_red, 50%));
   float: right;
   margin-left: 5px;
   width: 100px;

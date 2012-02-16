@@ -23,10 +23,15 @@ class Grab < ActiveRecord::Base
      poster_url = movie['posters']['detailed'] # movie['posters']['original']
      desc = movie['critics_consensus']
      date = movie['release_dates']['theater']
-     imdb = "http://www.imdb.com/title/tt"+movie['alternate_ids']['imdb']+"/combined"
-     
-     @list += [[critics_score,audience_score,title,poster_url,desc,date,imdb]] 
-     # puts "Movie: #{title}, Score: #{score}"
+
+     if movie['alternate_ids'].present?
+       imdb = "http://www.imdb.com/title/tt"+movie['alternate_ids']['imdb']+"/combined"
+     else
+       imdb = "http://www.imdb.com/"
+     end
+
+     @list += [[critics_score,audience_score,title,poster_url,desc,date,imdb]]
+    # puts "Movie: #{title}, Score: #{critics_score}, #{audience_score}"
     end
   end
 

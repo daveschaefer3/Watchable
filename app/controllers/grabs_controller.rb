@@ -47,6 +47,7 @@ class GrabsController < ApplicationController
     @seventh_desc = "&#8220;".html_safe << @list[6][4] << "&#8221;".html_safe
     @seventh_imdb = @list[6][5]
 
+    @title_list_for_homepage = [@title, @second_title, @third_title, @fourth_title, @fifth_title, @sixth_title, @seventh_title].to_sentence
   respond_to do |format|
       format.html # index.html.erb
     end

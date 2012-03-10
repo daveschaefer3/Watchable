@@ -30,22 +30,23 @@ class Grab < ActiveRecord::Base
       audience_score = movie['ratings']['audience_score']
       puts "Critics: #{critics_score}, Audience: #{audience_score}"
     else
-      critics_score = 1000
-      audience_score = 1000
-      puts "Critics: #{critics_score}, Audience: #{audience_score}"
+      critics_score = 0
+      audience_score = 0
+      puts "ERROR DETECTED: Critics: #{critics_score}, Audience: #{audience_score}"
     end
 
     if movie['posters']['detailed'].present?
       poster_url = movie['posters']['detailed'] # movie['posters']['original']
       puts "Poster: #{poster_url}"
     else
-      puts "Poster missing"
+      poster_url = ""
+      puts "Poster: missing"
     end
     
     if desc = movie['critics_consensus'].present?
       desc = "Consensus"
       desc = movie['critics_consensus']
-      puts "Consensus: UPPPPPPPPPPPPPPPPPPPPPPPP"
+      puts "Consensus: #{desc}"
     else
       desc = "Critics could not reach consensus"
       puts "Consensus: Critics could not reach consensus"
@@ -53,8 +54,10 @@ class Grab < ActiveRecord::Base
 
      if movie['alternate_ids'].present?
        imdb = "http://www.imdb.com/title/tt"+movie['alternate_ids']['imdb']+"/combined"
+       puts "IMDB URL: http://www.imdb.com/title/tt"+movie['alternate_ids']['imdb']+"/combined"
      else
        imdb = "http://www.imdb.com/"
+       puts "IMDB URL: no IMDB ID found"
      end
 
      @list += [[critics_score,audience_score,title,poster_url,desc,imdb]]

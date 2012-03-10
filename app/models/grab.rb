@@ -17,7 +17,11 @@ class Grab < ActiveRecord::Base
     @list = [] # create the movie array
     
     @response.each do |movie|
+    if movie['title'].present?
      title = movie['title']
+    else
+     title = "Missing title"
+    end
      
     if movie['ratings']['critics_score'].present? and movie['ratings']['audience_score'].present?
       critics_score = movie['ratings']['critics_score']

@@ -18,11 +18,30 @@ class Grab < ActiveRecord::Base
     
     @response.each do |movie|
      title = movie['title']
-     critics_score = movie['ratings']['critics_score']
-     audience_score = movie['ratings']['audience_score']
-     poster_url = movie['posters']['detailed'] # movie['posters']['original']
-     desc = movie['critics_consensus']
-     date = movie['release_dates']['theater']
+     
+    if movie['ratings']['critics_score'].present? and movie['ratings']['audience_score'].present?
+      critics_score = movie['ratings']['critics_score']
+      audience_score = movie['ratings']['audience_score']
+    else
+      critics_score = 1000
+      audience_score = 1000
+    end
+
+    if movie['posters']['detailed'].present?
+      poster_url = movie['posters']['detailed'] # movie['posters']['original']
+    end
+    
+    if desc = movie['critics_consensus'].present?
+      desc = movie['critics_consensus']
+    else
+      desc "---"
+    end
+    
+    if date = movie['release_dates']['theater'].present?
+      date = movie['release_dates']['theater']
+    else
+      date = "Tomorrow"
+    end
 
      if movie['alternate_ids'].present?
        imdb = "http://www.imdb.com/title/tt"+movie['alternate_ids']['imdb']+"/combined"

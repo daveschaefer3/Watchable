@@ -50,14 +50,6 @@ class Grab < ActiveRecord::Base
       desc = "Critics could not reach consensus"
       puts "Consensus: Critics could not reach consensus"
     end
-    
-    if date = movie['release_dates']['theater'].present?
-      date = movie['release_dates']['theater']
-      puts "#{date}"
-    else
-      date = "Tomorrow"
-      puts "#{date}"
-    end
 
      if movie['alternate_ids'].present?
        imdb = "http://www.imdb.com/title/tt"+movie['alternate_ids']['imdb']+"/combined"
@@ -65,7 +57,7 @@ class Grab < ActiveRecord::Base
        imdb = "http://www.imdb.com/"
      end
 
-     @list += [[critics_score,audience_score,title,poster_url,desc,date,imdb]]
+     @list += [[critics_score,audience_score,title,poster_url,desc,imdb]]
     # puts "Movie: #{title}, Score: #{critics_score}, #{audience_score}"
     end
   end

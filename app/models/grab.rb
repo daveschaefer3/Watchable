@@ -19,32 +19,44 @@ class Grab < ActiveRecord::Base
     @response.each do |movie|
     if movie['title'].present?
      title = movie['title']
+     puts "Movie: #{title}"
     else
      title = "Missing title"
+     puts "Missing title"
     end
      
     if movie['ratings']['critics_score'].present? and movie['ratings']['audience_score'].present?
       critics_score = movie['ratings']['critics_score']
       audience_score = movie['ratings']['audience_score']
+      puts "Critics: #{critics_score}, Audience: #{audience_score}"
     else
       critics_score = 1000
       audience_score = 1000
+      puts "Critics: #{critics_score}, Audience: #{audience_score}"
     end
 
     if movie['posters']['detailed'].present?
       poster_url = movie['posters']['detailed'] # movie['posters']['original']
+      puts "Poster: #{poster_url}"
+    else
+      puts "Poster missing"
     end
     
     if desc = movie['critics_consensus'].present?
+      desc = "Consensus"
       desc = movie['critics_consensus']
+      puts "Consensus: UPPPPPPPPPPPPPPPPPPPPPPPP"
     else
-      desc "---"
+      desc = "Critics could not reach consensus"
+      puts "Consensus: Critics could not reach consensus"
     end
     
     if date = movie['release_dates']['theater'].present?
       date = movie['release_dates']['theater']
+      puts "#{date}"
     else
       date = "Tomorrow"
+      puts "#{date}"
     end
 
      if movie['alternate_ids'].present?

@@ -22,3 +22,11 @@ Rails 3.1, SCSS, [Rotten Tomatoes API][]
 Made for you by Doug  
    
 I'm very open and willing to accept pull requests, suggestions, and bug fixes. Use this as you wish and let me know if you make anything interesting with it!
+
+## TODO  
+  
+  - REFACTOR
+  - KEEP IT ALL DONE IN THE MODEL
+  - SPLIT IT INTO A LOT OF SMALL METHODS SO THEY FAIL 'FASTER'
+  - CUT THE ARRAY TO SEVEN ITEMS THEN ITERATE IN THE CONTROLLER.
+  - LEARN HOW TO MODEL-CACHE (4 HOURS?) (SEE RAILSCASTS)

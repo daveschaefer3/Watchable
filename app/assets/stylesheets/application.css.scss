@@ -38,7 +38,7 @@ box-shadow: 0 0 $rad $color;
 }
 
 body {
-  background:$theatre_red url('/assets/background-scales.gif');
+  background:$theatre_red image_url('background-scales.gif');
   color: $creme;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 18px;

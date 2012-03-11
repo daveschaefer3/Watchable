@@ -1,67 +1,48 @@
 <div id="winner">
   <div class="info-area">
-    <h1 id="winner-title"><%= @title %></h1>
-    <div id="winner-poster"><%= link_to image_tag(@poster, :alt => @title), @imdb %></div>
+    <h1 id="winner-title"><%= @title_1 %></h1>
+    <div id="winner-poster"><%= link_to image_tag(@poster_1, :alt => @title_1), @imdb_1 %></div>
     <div class="winner-description">
-      <p><%= @desc %></p>
-      <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @imdb %></span><%= @score %>% Watchable</span>
+      <p><%= @desc_1 %></p>
+      <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @imdb_1 %></span><%= @score_1 %>% Watchable</span>
     </div>
   </div>  
 </div>
 
 <div id="runners-up">
   <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@second_poster, :alt => @second_title), @second_imdb %></div>
-    <h1><%= @second_title %></h1>
+    <div id="runners-up-poster"><%= link_to image_tag(@poster_2, :alt => @title_2), @imdb_2 %></div>
+    <h1><%= @title_2 %></h1>
     <div class="description">
-      <p><%= @second_desc %></p>
-       <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @second_imdb %></span><%= @second_score %>% Watchable</span>
+      <p><%= @desc_2 %></p>
+       <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @imdb__2 %></span><%= @score_2 %>% Watchable</span>
     </div>
   </div>
 
   <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@third_poster, :alt => @third_title), @third_imdb %></div>
-    <h1><%= @third_title %></h1>
+    <div id="runners-up-poster"><%= link_to image_tag(@poster_3, :alt => @title_3), @imdb_3 %></div>
+    <h1><%= @title_3 %></h1>
     <div class="description">
-      <p><%= @third_desc %></p>
-      <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @third_imdb %></span><%= @third_score %>% Watchable</span>
+      <p><%= @desc_3 %></p>
+      <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @imdb_3 %></span><%= @score_3 %>% Watchable</span>
     </div>
   </div>
 
   <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@fourth_poster, :alt => @fourth_title), @fourth_imdb %></div>
-    <h1><%= @fourth_title %></h1>
+    <div id="runners-up-poster"><%= link_to image_tag(@poster_4, :alt => @title_4), @imdb_4 %></div>
+    <h1><%= @title_4 %></h1>
     <div class="description">
-      <p><%= @fourth_desc %></p>
-      <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @fourth_imdb %></span><%= @fourth_score %>% Watchable</span>
+      <p><%= @desc_4 %></p>
+      <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @imdb_4 %></span><%= @score_4 %>% Watchable</span>
     </div>
   </div>
 
   <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@fifth_poster, :alt => @fifth_title), @fifth_imdb %></div>
-    <h1><%= @fifth_title %></h1>
+    <div id="runners-up-poster"><%= link_to image_tag(@poster_5, :alt => @title_5), @imdb_5 %></div>
+    <h1><%= @title_5 %></h1>
     <div class="description">
-      <p><%= @fifth_desc %></p>
-      <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @fifth_imdb %></span><%= @fifth_score %>% Watchable</span>
+      <p><%= @desc_5 %></p>
+      <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @imdb_5 %></span><%= @score_5 %>% Watchable</span>
     </div>
   </div>
-<!-- 
-  <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@sixth_poster, :alt => @sixth_title), @sixth_imdb %></div>
-    <h1><%= @sixth_title %></h1>
-    <div class="description">
-      <p><%= @sixth_desc %></p>
-      <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @sixth_imdb %></span><%= @sixth_score %>% Watchable</span>
-    </div>
-  </div>
-  
-  <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@seventh_poster, :alt => @seventh_title), @seventh_imdb %></div>
-    <h1><%= @seventh_title %></h1>
-    <div class="description">
-      <p><%= @seventh_desc %></p>
-      <span class="score"><span><%= link_to image_tag('/assets/IMDb_button.png', :alt => "IMDB", :size => "35x17", :class => "imdb"), @seventh_imdb %></span><%= @seventh_score %>% Watchable</span>
-    </div>
-  </div>
--->
 </div>

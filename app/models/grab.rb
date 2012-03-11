@@ -19,45 +19,40 @@ class Grab < ActiveRecord::Base
     @response.each do |movie|
     if movie['title'].present?
      title = movie['title']
-     puts "Movie: #{title}"
     else
      title = "Missing title"
-     puts "Missing title"
+     puts "ERRORS: Missing title"
     end
      
     if movie['ratings']['critics_score'].present? and movie['ratings']['audience_score'].present?
       critics_score = movie['ratings']['critics_score']
       audience_score = movie['ratings']['audience_score']
-      puts "Critics: #{critics_score}, Audience: #{audience_score}"
     else
       critics_score = 0
       audience_score = 0
-      puts "ERROR DETECTED: Critics: #{critics_score}, Audience: #{audience_score}"
+      puts "ERRORS: Missing scores in #{title} Critics: #{critics_score}, Audience: #{audience_score}"
     end
 
     if movie['posters']['detailed'].present?
       poster_url = movie['posters']['detailed'] # movie['posters']['original']
-      puts "Poster: #{poster_url}"
     else
       poster_url = ""
-      puts "Poster: missing"
+      puts "ERRORS: Poster missing on #{title}"
     end
     
     if desc = movie['critics_consensus'].present?
       desc = "Consensus"
       desc = movie['critics_consensus']
-      puts "Consensus: #{desc}"
     else
-      desc = "Critics could not reach consensus"
-      puts "Consensus: Critics could not reach consensus"
+      desc = "Critics could not reach consensus about #{title}"
+      puts "ERRORS: No consensus on #{title}"
     end
 
      if movie['alternate_ids'].present?
        imdb = "http://www.imdb.com/title/tt"+movie['alternate_ids']['imdb']+"/combined"
-       puts "IMDB URL: http://www.imdb.com/title/tt"+movie['alternate_ids']['imdb']+"/combined"
      else
        imdb = "http://www.imdb.com/"
-       puts "IMDB URL: no IMDB ID found"
+       puts "ERRORS: no IMDB ID found on #{title}"
      end
 
      @list += [[critics_score,audience_score,title,poster_url,desc,imdb]]
@@ -66,7 +61,8 @@ class Grab < ActiveRecord::Base
   end
 
   def self.sort_order
-    @list = @list.sort_by{|critics_score| critics_score*+1}.reverse
+    # take the list, sort it by critic's score, get the top five items, then reverse it so it's in descending order
+    @list = @list.sort_by{|critics_score| critics_score*+1}.pop(5).reverse 
   end
 
 

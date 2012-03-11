@@ -1,7 +1,7 @@
 class GrabsController < ApplicationController
 
   def index
-    response.headers['Cache-Control'] = 'public, max-age=3600' # 3600 = 60 minutes browser cache
+    response.headers['Cache-Control'] = 'public, max-age=72000' # 3600 = 60 minutes browser cache, 72000 = 20 hrs
 
     @list = Grab.in_theatres
 

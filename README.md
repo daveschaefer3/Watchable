@@ -15,7 +15,7 @@ The goal for this app is to suggest current movies that critics and fans agree a
 
 Rails 3.1, SCSS, [Rotten Tomatoes API][]  
   
-[Rotten Tomatoes API]: http://developer.rottentomatoes.com/  
+[Rotten Tomatoes API]: http://developer.rottentomatoes.com/docs
   
 ## Humans.txt  
   
@@ -27,5 +27,4 @@ I'm very open and willing to accept pull requests, suggestions, and bug fixes. U
   
   - REFACTOR / KEEP IT ALL DONE IN THE MODEL
   - SPLIT IT INTO A LOT OF SMALL METHODS SO THEY CAN FAIL MORE CLEANLY
-  - ADD A CLASS TO THE DIV OF EACH ITEM, IF THE ADJUSTED SCORE IS <70 THEN MAKE IT HALF-TRANSPARENT OR OTHERWISE 'NEGATIVE'
   - LEARN HOW TO MODEL-CACHE (4 HOURS?) (SEE RAILSCASTS)

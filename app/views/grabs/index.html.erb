@@ -6,7 +6,7 @@
       <p><%= @desc_1 %></p>
       <span class="score"><span><%= link_to image_tag('IMDb_button.png', alt: "IMDB", size: "35x17", class: "imdb"), @imdb_1 %></span><%= @score_1 %>% Watchable</span>
     </div>
-  </div>  
+  </div>
 </div>
 
 <div id="runners-up">
@@ -19,6 +19,7 @@
     </div>
   </div>
 
+<% if @score_3 > 70 %>
   <div class="info-area">
     <div id="runners-up-poster"><%= link_to image_tag(@poster_3, alt: @title_3, size: "100x148"), @imdb_3 %></div>
     <h1><%= @title_3 %></h1>
@@ -27,7 +28,9 @@
       <span class="score"><span><%= link_to image_tag('IMDb_button.png', alt: "IMDB", size: "35x17", class: "imdb"), @imdb_3 %></span><%= @score_3 %>% Watchable</span>
     </div>
   </div>
+<% end %>
 
+<% if @score_4 > 65 %>
   <div class="info-area">
     <div id="runners-up-poster"><%= link_to image_tag(@poster_4, alt: @title_4, size: "100x148"), @imdb_4 %></div>
     <h1><%= @title_4 %></h1>
@@ -36,7 +39,9 @@
       <span class="score"><span><%= link_to image_tag('IMDb_button.png', alt: "IMDB", size: "35x17", class: "imdb"), @imdb_4 %></span><%= @score_4 %>% Watchable</span>
     </div>
   </div>
+<% end %>
 
+<% if @score_5 > 60 %>
   <div class="info-area">
     <div id="runners-up-poster"><%= link_to image_tag(@poster_5, alt: @title_5, size: "100x148"), @imdb_5 %></div>
     <h1><%= @title_5 %></h1>
@@ -45,4 +50,5 @@
       <span class="score"><span><%= link_to image_tag('IMDb_button.png', alt: "IMDB", size: "35x17", class: "imdb"), @imdb_5 %></span><%= @score_5 %>% Watchable</span>
     </div>
   </div>
+<% end %>
 </div>

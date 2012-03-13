@@ -25,7 +25,6 @@ Made for you by Doug
   <link rel="shortcut icon" href="/assets/favicon.ico" />
 </head>
 <body>
-  <script type="text/javascript">window.scrollTo(0, 1);</script>
   <div id="header">
     <h1>Watchable</h1>
     <h2><%= slug_line %></h2>
@@ -36,12 +35,18 @@ Made for you by Doug
   <div id="footer">
     <p><a href="http://dougstewart.org/">Made for you by Doug</a>. This website updates all the damn time.</p>
   </div>
+  
+  <script type="text/javascript">window.scrollTo(0, 1);</script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-5771210-1']);
+    _gaq.push(['_trackPageview', 'Watchable.heroku.com']);
 
-  <script>
-    var _gaq=[['_setAccount','UA-5771210-1'],['_trackPageview', 'Watchable.heroku.com']];
-    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
-    g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
-    s.parentNode.insertBefore(g,s)}(document,'script'));
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
   </script>
 </body>
 </html>

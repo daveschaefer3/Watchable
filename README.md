@@ -9,7 +9,7 @@
     
 ## Watchable  
   
-The goal for this app is to suggest current movies that critics and fans agree are better than others. Individual tastes may vary, and are difficult to account for, but if a consensus is formed you likely should feel pleased with spending money on the suggested films.  
+The goal for this app is to suggest current wide-release movies that critics and fans agree are better than others. Individual tastes may vary, and are difficult to account for, but if a consensus is formed you likely should feel pleased with spending money on the suggested films.  
   
 ## Riggings  
 

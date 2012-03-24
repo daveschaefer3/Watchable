@@ -17,45 +17,45 @@ class Grab < ActiveRecord::Base
     @list = [] # create the movie array
     
     @response.each do |movie|
-    if movie['title'].present?
-     title = movie['title']
-    else
-     title = "Missing title"
-     puts "ERRORS: Missing title"
-    end
-     
-    if movie['ratings']['critics_score'].present? and movie['ratings']['audience_score'].present?
-      critics_score = movie['ratings']['critics_score']
-      audience_score = movie['ratings']['audience_score']
-    else
-      critics_score = 0
-      audience_score = 0
-      puts "ERRORS: Missing scores in #{title} Critics: #{critics_score}, Audience: #{audience_score}"
-    end
+      if movie['title'].present?
+        title = movie['title']
+      else
+        title = "Missing title"
+        puts "ERRORS: Missing title"
+      end
+      
+      if movie['ratings']['critics_score'].present? and movie['ratings']['audience_score'].present?
+        critics_score = movie['ratings']['critics_score']
+        audience_score = movie['ratings']['audience_score']
+      else
+        critics_score = 0
+        audience_score = 0
+        puts "ERRORS: Missing scores in #{title} Critics: #{critics_score}, Audience: #{audience_score}"
+      end
+      
+      if movie['posters']['detailed'].present?
+        poster_url = movie['posters']['detailed'] # movie['posters']['original']
+      else
+        poster_url = ""
+        puts "ERRORS: Poster missing on #{title}"
+      end
+      
+      if desc = movie['critics_consensus'].present?
+        desc = "Consensus"
+        desc = movie['critics_consensus']
+      else
+        desc = "Critics could not reach consensus about #{title}"
+        puts "ERRORS: No consensus on #{title}"
+      end
 
-    if movie['posters']['detailed'].present?
-      poster_url = movie['posters']['detailed'] # movie['posters']['original']
-    else
-      poster_url = ""
-      puts "ERRORS: Poster missing on #{title}"
-    end
-    
-    if desc = movie['critics_consensus'].present?
-      desc = "Consensus"
-      desc = movie['critics_consensus']
-    else
-      desc = "Critics could not reach consensus about #{title}"
-      puts "ERRORS: No consensus on #{title}"
-    end
-
-     if movie['alternate_ids'].present?
-       imdb = "http://www.imdb.com/title/tt"+movie['alternate_ids']['imdb']+"/combined"
-     else
-       imdb = "http://www.imdb.com/"
-       puts "ERRORS: no IMDB ID found on #{title}"
-     end
-
-     @list += [[critics_score,audience_score,title,poster_url,desc,imdb]]
+      if movie['alternate_ids'].present?
+        imdb = "http://www.imdb.com/title/tt"+movie['alternate_ids']['imdb']+"/combined"
+      else
+        imdb = "http://www.imdb.com/"
+        puts "ERRORS: no IMDB ID found on #{title}"
+      end
+      
+      @list += [[critics_score,audience_score,title,poster_url,desc,imdb]]
     # puts "Movie: #{title}, Score: #{critics_score}, #{audience_score}"
     end
   end

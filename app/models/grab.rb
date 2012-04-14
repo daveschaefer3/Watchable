@@ -65,27 +65,4 @@ class Grab < ActiveRecord::Base
     @list = @list.sort_by{|critics_score| critics_score*+1}.pop(5).reverse 
   end
 
-
-=begin
-  def self.opening
-    response = HTTParty.get(MOVIE_LIST+'/opening.json?apikey='+KEY)
-    puts response.body
-    
-    #puts "I say #{response.message}, #{response.code}"
-    #puts response.headers.inspect
-  end
-  
-  def self.upcoming
-    response = HTTParty.get(MOVIE_LIST+'/upcoming.json?apikey='+KEY)
-    puts response.body
-    
-    #puts "I say #{response.message}, #{response.code}"
-    #puts response.headers.inspect
-  end
-  
-  def sort_by_rating
-    # Do so here, return the hash again with highest-rated first and so-on
-  end
-=end
-
 end

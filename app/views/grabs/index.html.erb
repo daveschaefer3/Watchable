@@ -4,7 +4,7 @@
     <div id="winner-poster"><%= link_to image_tag(@poster_1, alt: @title_1, size: "180x267"), @imdb_1 %></div>
     <div class="winner-description">
       <p><%= @desc_1 %></p>
-      <span class="score"><span><%= link_to image_tag('IMDb_button.png', alt: "IMDB", size: "35x17", class: "imdb"), @imdb_1 %></span><%= @score_1 %>% Watchable</span>
+      <span class="score"><span><%= link_to imdb_logo, @imdb_1 %></span><%= @score_1 %>% Watchable</span>
     </div>
   </div>
 </div>
@@ -15,7 +15,7 @@
     <h1><%= @title_2 %></h1>
     <div class="description">
       <p><%= @desc_2 %></p>
-       <span class="score"><span><%= link_to image_tag('IMDb_button.png', alt: "IMDB", size: "35x17", class: "imdb"), @imdb__2 %></span><%= @score_2 %>% Watchable</span>
+       <span class="score"><span><%= link_to imdb_logo, @imdb_2 %></span><%= @score_2 %>% Watchable</span>
     </div>
   </div>
 
@@ -25,7 +25,7 @@
     <h1><%= @title_3 %></h1>
     <div class="description">
       <p><%= @desc_3 %></p>
-      <span class="score"><span><%= link_to image_tag('IMDb_button.png', alt: "IMDB", size: "35x17", class: "imdb"), @imdb_3 %></span><%= @score_3 %>% Watchable</span>
+      <span class="score"><span><%= link_to imdb_logo, @imdb_3 %></span><%= @score_3 %>% Watchable</span>
     </div>
   </div>
 <% end %>
@@ -36,7 +36,7 @@
     <h1><%= @title_4 %></h1>
     <div class="description">
       <p><%= @desc_4 %></p>
-      <span class="score"><span><%= link_to image_tag('IMDb_button.png', alt: "IMDB", size: "35x17", class: "imdb"), @imdb_4 %></span><%= @score_4 %>% Watchable</span>
+      <span class="score"><span><%= link_to imdb_logo, @imdb_4 %></span><%= @score_4 %>% Watchable</span>
     </div>
   </div>
 <% end %>
@@ -47,7 +47,7 @@
     <h1><%= @title_5 %></h1>
     <div class="description">
       <p><%= @desc_5 %></p>
-      <span class="score"><span><%= link_to image_tag('IMDb_button.png', alt: "IMDB", size: "35x17", class: "imdb"), @imdb_5 %></span><%= @score_5 %>% Watchable</span>
+      <span class="score"><span><%= link_to imdb_logo, @imdb_5 %></span><%= @score_5 %>% Watchable</span>
     </div>
   </div>
 <% end %>

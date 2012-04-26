@@ -15,6 +15,11 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem 'rails_best_practices'
+  gem 'cane'
+end
+
 gem 'jquery-rails'
 
 # Use unicorn as the web server

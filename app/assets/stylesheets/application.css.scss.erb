@@ -208,7 +208,7 @@ body {
   line-height: 24px;
   text-shadow: 0px 1px 3px darken($theatre_red, 50%);
   }
-  
+
 ul {
   list-style-type: none;
   margin-left: -25px;
@@ -221,6 +221,9 @@ a {
   &:hover {
     color: yellow;
     } }
+
+.trailer a, .trailer a:visited {color: lighten(yellow, 35%);; text-decoration: none;}
+.trailer a:hover {color: yellow }
 
 #header {
   position: relative;
@@ -254,7 +257,7 @@ h2 {
   @include border-radius(5px);
   @include box-shadow(15px, #000);
   @include padding-margin(10px, 20px);
-  width: 500px;  
+  width: 500px;
   height: 350px;
   }
 #winner > .info-area > .description p {font-size:1.25em; line-height: 1.5em;}
@@ -269,7 +272,7 @@ h2 {
 #winner #winner-poster img:hover {
   @include light-box-shadow(20px,50%);
   }
-  
+
 .imdb, .video {position:relative; top:4px; padding-right: 4px;}
 #winner .imdb, #winner .video {top:3px;}
 .score, .trailer {
@@ -309,7 +312,7 @@ h2 {
 #runners-up #runners-up-poster img:hover {
   @include box-shadow(10px, lighten($theatre_red, 50%));
   }
-  
+
 #footer {
   display: block;
   font: {

@@ -26,5 +26,6 @@ I'm very open and willing to accept pull requests, suggestions, and bug fixes. U
 ## TODO  
   
   - REFACTOR / KEEP IT ALL DONE IN THE MODEL
+  - Add a lot of helpers to keep the calls short (<80 characters)
   - SPLIT IT INTO A LOT OF SMALL METHODS SO THEY CAN FAIL MORE CLEANLY
   - LEARN HOW TO MODEL-CACHE (8 HOURS?) (SEE RAILSCASTS)

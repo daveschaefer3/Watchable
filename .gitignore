@@ -6,3 +6,4 @@ tmp/
 .DS_Store
 api-key.rb
 vendor/bundle/
+rails_best_practices_output.html

@@ -6,6 +6,7 @@ gem 'json'
 gem 'httparty'
 gem 'therubyracer'
 gem 'pg'
+gem 'metriks'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -21,15 +22,6 @@ group :development do
 end
 
 gem 'jquery-rails'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
 
 gem "haml", ">= 3.0.0"
 gem "haml-rails"

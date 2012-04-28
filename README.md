@@ -28,4 +28,5 @@ I'm very open and willing to accept pull requests, suggestions, and bug fixes. U
   - REFACTOR / KEEP IT ALL DONE IN THE MODEL
   - Add a lot of helpers to keep the calls short (<80 characters)
   - SPLIT IT INTO A LOT OF SMALL METHODS SO THEY CAN FAIL MORE CLEANLY
+  - Add/test `rails_best_practices` and `cane`
   - LEARN HOW TO MODEL-CACHE (8 HOURS?) (SEE RAILSCASTS)

@@ -34,12 +34,9 @@ class GrabsController < ApplicationController
     @poster_5 = @list.fifth[3]
     @desc_5 = "&#8220;".html_safe << @list.fifth[4] << "&#8221;".html_safe
     @imdb_5 = @list.fifth[5]
-    
-    meter = Metriks.meter('Watchable-view')
-    meter.mark
 
-    counter = Metriks.counter('Watchable-hit')
-    counter.increment
+    Metriks.meter('Watchable-view').mark
+    Metriks.counter('Watchable-hit').increment
   end
 
 end

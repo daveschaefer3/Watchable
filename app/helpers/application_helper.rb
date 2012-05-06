@@ -6,16 +6,15 @@ module ApplicationHelper
 
   def title_review_list
     # used in the meta description tag
-    @title_1 << " review, " <<
-    @title_2 << " review, " <<
-    @title_3 << " review, " <<
-    @title_4 << " review, " <<
-    @title_5 << " review"
+    a = [@title_1, @title_2, @title_3, @title_4, @title_5]
+    a.map{|r| "#{r} review" }.to_sentence
   end
 
   def slug_line
     # used as the site's slogan of-sorts
-    "Movies worth watching, " << Date.today.strftime('%b ') << Date.today.strftime('%d').to_i.ordinalize << "."
+    month = "#{Date.today.strftime('%b ')}"
+    day = "#{Date.today.strftime('%d').to_i.ordinalize}"
+    "Movies worth watching, #{month} #{day}."
   end
 
   def trailer_link
@@ -67,8 +66,9 @@ QB3omZvywBDqQAAAABJRU5ErkJggg=="
   end
 
   def trailer_logo
-    '<img src="data:image/gif;base64,R0lGODlhHwASAIABAI2Njf7+/iH5BAEAAAEALAAAAAAfABIAAAJBjI+py+0PIwK02ovxDID7Dn5i
-    2B3ZiVZJuS7s1iqv6cq1jcPxrtN57wMaZsOb0PMLDlPMy4Y0ikJfzSpFgs1qDQUAOw==" alt="Trailer" width="31" height="18" class="video">'.html_safe
+    '<img src="data:image/gif;base64,
+    R0lGODlhHwASAIABAI2Njf7+/iH5BAEAAAEALAAAAAAfABIAAAJBjI+py+0PIwK02ovxDID7
+    Dn5i2B3ZiVZJuS7s1iqv6cq1jcPxrtN57wMaZsOb0PMLDlPMy4Y0ikJfzSpFgs1qDQUAOw=="
+     alt="Trailer" width="31" height="18" class="video">'.html_safe
   end
-
 end

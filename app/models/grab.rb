@@ -18,46 +18,19 @@ class Grab < ActiveRecord::Base
     @list = [] # create the movie array
 
     @response.each do |m|
-      if m['title'].present?
-        title = m['title']
-      else
-        title = "Missing title"
-        puts "ERRORS: Missing title"
-      end
+      title = m['title'] ||= "Missing title"
 
-      if m['ratings']['critics_score'].present? and
-         m['ratings']['audience_score'].present?
-        critics_score = m['ratings']['critics_score']
-        audience_score = m['ratings']['audience_score']
-      else
-        critics_score = 0
-        audience_score = 0
-        puts "ERRORS: Missing scores in #{title}
-        Critics: #{critics_score}, Audience: #{audience_score}"
-      end
+      critics_score = m['ratings']['critics_score'] ||= "80"
+      audience_score = m['ratings']['audience_score'] ||= "80"
 
-      if m['posters']['detailed'].present?
-        poster_url = m['posters']['detailed'] # movie['posters']['original']
-      else
-        poster_url = ""
-        puts "ERRORS: Poster missing on #{title}"
-      end
+      poster_url = m['posters']['detailed'] ||= ""
 
-      if desc = m['critics_consensus'].present?
-        desc = "Consensus"
-        desc = m['critics_consensus']
-      else
-        desc = "Critics could not reach consensus about #{title}"
-        puts "ERRORS: No consensus on #{title}"
-      end
+      no_consensus = "Critics could not reach consensus about #{title}"
+      desc = m['critics_consensus'] ||= no_consensus
 
-      if m['alternate_ids'].present?
-        imdburl = "http://www.imdb.com/title/tt"
-        imdb = "#{imdburl} #{m['alternate_ids']['imdb']}/combined"
-      else
-        imdb = "http://www.imdb.com/"
-        puts "ERRORS: no IMDB ID found on #{title}"
-      end
+      imdb_url = "http://www.imdb.com"
+      imdb_yes = "#{imdb_url}/title/tt#{m['alternate_ids']['imdb']}/combined"
+      imdb = m['alternate_ids'].present? ? imdb_yes : imdb_url
 
       @list += [[critics_score,audience_score,title,poster_url,desc,imdb]]
     # puts "Movie: #{title}, Score: #{critics_score}, #{audience_score}"

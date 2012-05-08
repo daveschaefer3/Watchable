@@ -17,8 +17,9 @@ group :assets do
 end
 
 group :development do
-  gem 'rails_best_practices'
+  gem 'brakeman'
   gem 'cane'
+  gem 'rails_best_practices'
 end
 
 gem 'jquery-rails'

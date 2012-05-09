@@ -1,8 +1,5 @@
 # Connect to Rotten Tomatoes and squish out the tomato juice
 class Grab < ActiveRecord::Base
-  KEY = "bewstptmhvbxsc7xcj5wbdbu"
-  MOVIE_LIST = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies"
-
   def self.in_theatres
     self.get_response
     self.construct_list

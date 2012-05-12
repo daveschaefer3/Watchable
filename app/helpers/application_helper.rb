@@ -18,10 +18,8 @@ module ApplicationHelper
   end
 
   def upcoming_date(date)
-    day_and_month = "#{date.strftime('%A %b')}"
-    day_ordinalized = "#{date.strftime('%d').to_i.ordinalize}"
     dotiw = distance_of_time_in_words(Date.today, date)
-    "#{day_and_month} #{day_ordinalized} (#{dotiw})"
+    "Opens in #{dotiw}"
   end
 
   def trailer_link

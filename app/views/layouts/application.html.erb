@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!--
+<!-- ---------------------------------------
 
 888       888          888            888               888      888
 888   o   888          888            888               888      888
@@ -12,7 +12,19 @@
 888P     Y888 "Y888888  "Y888 "Y8888P 888  888 "Y888888 88888P"  888  "Y8888
 
 Made for you by Doug
--->
+
+--------------------------------------------
+
+Listen, I've come to rock this boat
+The take and giving means no room for the living
+And some of you think it loves and lovers
+Death in one corner leaves no space in the other
+I know that when it's over we'll be holding one another
+We only ever wanted to feel real
+Two years of tension only teaches you to fight
+We only ever wanted to try
+
+--------------------------------------- -->
 <head>
   <%= yield :head %>
   <link rel="canonical" href="http://watchable.heroku.com/" itemprop="url"/>
@@ -29,7 +41,7 @@ Made for you by Doug
   </div>
   <%= yield %>
   <div id="footer">
-    <h3><a href="/upcoming">See what films are coming soon.</h3>
+    <%= yield :footer %>
     <p><a href="http://dougstewart.org/">Made for you by Doug</a>. This website updates all the damn time.</p>
   </div>
   <%= render :partial => 'layouts/analytics' %>

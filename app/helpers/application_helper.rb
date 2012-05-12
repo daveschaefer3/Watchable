@@ -17,6 +17,13 @@ module ApplicationHelper
     "Movies worth watching, #{month} #{day}."
   end
 
+  def upcoming_date(date)
+    day_and_month = "#{date.strftime('%A %b')}"
+    day_ordinalized = "#{date.strftime('%d').to_i.ordinalize}"
+    dotiw = distance_of_time_in_words(Date.today, date)
+    "#{day_and_month} #{day_ordinalized} (#{dotiw})"
+  end
+
   def trailer_link
     # append /videogallery onto the IMDB URL
     "/videogallery"

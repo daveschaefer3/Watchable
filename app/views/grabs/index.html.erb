@@ -1,3 +1,11 @@
+<% content_for :head do %>
+<title>Watchable - Movies worth watching. This week: <%= title_sentence %></title>
+<meta name="description" content="Watchable - The best-reviewed movies. <%= title_review_list %>" />
+<% end %>
+<% content_for :slugline do %>
+<%= slug_line %>
+<% end %>
+
 <div id="winner">
   <div class="info-area">
     <h1 id="winner-title"><%= @title_1 %></h1>

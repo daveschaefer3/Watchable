@@ -13,6 +13,11 @@ class GrabsController < ApplicationController
     movie_4
     movie_5
     send_stats
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render }
+    end
   end
 
 private

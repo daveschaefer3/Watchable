@@ -312,6 +312,36 @@ h2 {
   @include box-shadow(10px, lighten($theatre_red, 50%));
   }
 
+.upcoming-movie {
+  color: darken($creme, 5%);
+  padding: 10px;
+  margin: 20px;
+  background-color: #a51c1a;
+  @include radial-gradient(142, 26, 26, 13, 15, 17);
+  @include border-radius(5px);
+  @include box-shadow(6px, #000);
+  text-shadow: 0px 0px 5px #000;
+  max-width: 540px;
+  min-height: 50px;
+  line-height: 1em;
+  }
+
+.upcoming-poster { float: left; }
+.title-and-date {font-weight: 700; font-style: normal; line-height: 18px;}
+.upcoming-date { display: block; postition: relative; margin-top: 10px; }
+
+.upcoming-poster {
+  @include border-radius(3px);
+  @include box-shadow(10px, lighten($theatre_red, 30%));
+  border: 1px solid $border_color;
+  float: left;
+  padding: 0px; margin: 0px 10px 0px 0px;
+  }
+.upcoming-poster:hover {
+  @include box-shadow(10px, lighten($theatre_red, 50%));
+  }
+
+
 #footer {
   display: block;
   font: {

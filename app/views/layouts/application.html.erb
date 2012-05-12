@@ -14,9 +14,8 @@
 Made for you by Doug
 -->
 <head>
-  <title>Watchable - Movies worth watching. This week: <%= title_sentence %></title>
+  <%= yield :head %>
   <link rel="canonical" href="http://watchable.heroku.com/" itemprop="url"/>
-  <meta name="description" content="Watchable - The best-reviewed movies. <%= title_review_list %>" />
   <%= stylesheet_link_tag "application" %>
   <script type="text/javascript" src="http://use.typekit.com/gqd6bwq.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
@@ -26,10 +25,11 @@ Made for you by Doug
 <body>
   <div id="header">
     <h1>Watchable</h1>
-    <h2><%= slug_line %></h2>
+    <h2><%= yield :slugline %></h2>
   </div>
   <%= yield %>
   <div id="footer">
+    <h3><a href="/upcoming">See what films are coming soon.</h3>
     <p><a href="http://dougstewart.org/">Made for you by Doug</a>. This website updates all the damn time.</p>
   </div>
   <%= render :partial => 'layouts/analytics' %>

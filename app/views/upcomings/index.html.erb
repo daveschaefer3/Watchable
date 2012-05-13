@@ -8,11 +8,12 @@ Movies in theatres soon
 <% @list.each do |movie| %>
 <div class="score upcoming-movie">
   <div class="upcoming-poster">
-    <%= link_to image_tag(movie[3], alt: movie[0], size: "31x46"), movie[2], align: "left" %>
+    <%= link_to image_tag(movie[3], alt: movie[0], size: "61x91"), movie[2], align: "left" %>
   </div>
   <div>
     <h1 class="title-and-date"><%= link_to movie[0], movie[2] %></h1>
-    <span class="upcoming-date"><%= upcoming_date(movie[1].to_date) %></span>
+    <p class="upcoming-date"><%= upcoming_date(movie[1].to_date) %><br/>
+    <small><%= upcoming_interested(movie[4]) %></small></p>
   </div>
 </div>
 <% end %>

@@ -26,7 +26,9 @@ class Upcoming < ActiveRecord::Base
 
       poster = m['posters']['thumbnail'] ||= ""
 
-      @list += [[title,release_dates,imdb,poster]]
+      audience = m['ratings']['audience_score'] ||= ""
+
+      @list += [[title,release_dates,imdb,poster,audience]]
     end
   end
 

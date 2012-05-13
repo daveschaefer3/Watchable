@@ -38,6 +38,10 @@ module ApplicationHelper
     "Opens in #{dotiw}"
   end
 
+  def upcoming_interested(score)
+    "Early reviews: #{score}% watchable"
+  end
+
   def trailer_link
     # append /videogallery onto the IMDB URL
     "/videogallery"

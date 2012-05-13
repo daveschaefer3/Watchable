@@ -1,5 +1,5 @@
 # Connect to Rotten Tomatoes and squish out the tomato juice
-class Grab < ActiveRecord::Base
+class Current < ActiveRecord::Base
   def self.in_theatres
     self.get_response
     self.construct_list

@@ -1,19 +1,17 @@
 <% content_for :head do %>
-<title>Watchable - Upcoming movies</title>
-<meta name="description" content="Watchable - Movies coming soon to a theater near you." />
+<title>Watchable Upcoming movies - <%= upcoming_title %></title>
+<meta name="description" content="Watchable - <%= upcoming_date_list %>" />
 <% end %>
 <% content_for :slugline do %>
 Movies in theatres soon
 <% end %>
-
 <% @list.each do |movie| %>
 <div class="score upcoming-movie">
   <div class="upcoming-poster">
     <%= link_to image_tag(movie[3], alt: movie[0], size: "31x46"), movie[2], align: "left" %>
   </div>
-
   <div>
-    <h1 class="title-and-date"><%= link_to movie[0], movie[2] %></h1> <%= link_to imdb_logo, movie[2] %></h1>
+    <h1 class="title-and-date"><%= link_to movie[0], movie[2] %></h1>
     <span class="upcoming-date"><%= upcoming_date(movie[1].to_date) %></span>
   </div>
 </div>

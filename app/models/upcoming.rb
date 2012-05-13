@@ -1,4 +1,4 @@
-# Connect to Rotten Tomatoes and squish out the tomato juice
+# Connect to Rotten Tomatoes for movies coming in the next month or so
 class Upcoming < ActiveRecord::Base
 
   def self.get_response

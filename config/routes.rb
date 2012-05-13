@@ -1,6 +1,6 @@
 Watchthisnotthat::Application.routes.draw do
-#  resources :grabs
+#  resources :currents
   match "/upcoming" => "upcomings#index", :as => :upcoming
 
-  root :to => 'grabs#index'
+  root :to => 'currents#index'
 end

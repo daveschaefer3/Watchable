@@ -222,8 +222,18 @@ a {
     color: yellow;
     } }
 
-.trailer a, .trailer a:visited {color: lighten(yellow, 35%);; text-decoration: none;}
-.trailer a:hover {color: yellow }
+#header h1 a,
+h1 a,
+h1 a:visited,
+.trailer a,
+.trailer a:visited {
+  color: $creme; text-decoration: none;
+  }
+#header h1 a:hover,
+h1 a:hover,
+.trailer a:hover {
+  color: darken($creme,5%); text-decoration: underline;
+  }
 
 #header {
   position: relative;
@@ -238,6 +248,7 @@ h1 {
   }
   letter-spacing: -1px;
   }
+
 h1#winner-title {font-style: normal;}
 h2 {
   font: {
@@ -274,6 +285,7 @@ h2 {
 
 .imdb, .video {position:relative; top:4px; padding-right: 4px;}
 #winner .imdb, #winner .video {top:3px;}
+
 .score, .trailer {
   font-size: 0.8em;
   color: darken($creme, 5%);
@@ -327,7 +339,6 @@ h2 {
   }
 
 .upcoming-movie a { color: $creme; text-decoration: none; }
-
 .upcoming-poster { float: left; }
 .title-and-date {font-weight: 700; font-style: normal; line-height: 18px;}
 .upcoming-date { display: block; postition: relative; margin-top: 10px; }
@@ -343,7 +354,6 @@ h2 {
   @include box-shadow(10px, lighten($theatre_red, 50%));
   }
 
-
 #footer {
   display: block;
   font: {
@@ -355,3 +365,5 @@ h2 {
   left: 15px; top: 5px;
   margin-bottom: 50px;
   }
+
+#footer-link { font-size: 1.75em; }

@@ -39,7 +39,7 @@ module ApplicationHelper
   end
 
   def upcoming_interested(score)
-    "#{score}% public interest in seeing it"
+    "#{score}% public interest"
   end
 
   def trailer_link

@@ -16,9 +16,27 @@ Movies opening this week and soon after
 <a name="opening"></a>
 <h2>Movies opening this week</h2>
 <% @opening_list.each do |movie| %>
+<% if movie[4] > 61 %>
 <div class="score upcoming-movie">
   <div class="upcoming-poster">
-    <%= link_to image_tag(movie[3], alt: movie[0], size: "61x91"), movie[2], align: "left" %>
+    <%= link_to image_tag(movie[3], alt: movie[0], size: "40x60"), movie[2], align: "left" %>
+  </div>
+  <div>
+    <h1 class="title-and-date"><%= link_to truncate_title(movie[0]), movie[2] %></h1>
+    <p class="upcoming-date"><%= upcoming_date(movie[1].to_date) %><br/>
+    <small><%= upcoming_interested(movie[4]) %></small></p>
+  </div>
+</div>
+<% end %>
+<% end %>
+
+<a name="upcoming"></a>
+<h2>Movies opening after this week</h2>
+<% @upcoming_list.each do |movie| %>
+<% if movie[4] > 61 %>
+<div class="score upcoming-movie">
+  <div class="upcoming-poster">
+    <%= link_to image_tag(movie[3], alt: movie[0], size: "40x60"), movie[2], align: "left" %>
   </div>
   <div>
     <h1 class="title-and-date"><%= link_to movie[0], movie[2] %></h1>
@@ -27,18 +45,4 @@ Movies opening this week and soon after
   </div>
 </div>
 <% end %>
-
-<a name="upcoming"></a>
-<h2>Upcoming movies</h2>
-<% @upcoming_list.each do |movie| %>
-<div class="score upcoming-movie">
-  <div class="upcoming-poster">
-    <%= link_to image_tag(movie[3], alt: movie[0], size: "61x91"), movie[2], align: "left" %>
-  </div>
-  <div>
-    <h1 class="title-and-date"><%= link_to movie[0], movie[2] %></h1>
-    <p class="upcoming-date"><%= upcoming_date(movie[1].to_date) %><br/>
-    <small><%= upcoming_interested(movie[4]) %></small></p>
-  </div>
-</div>
 <% end %>

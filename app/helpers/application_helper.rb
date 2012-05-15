@@ -47,6 +47,10 @@ module ApplicationHelper
     "#{score}% public interest"
   end
 
+  def truncate_title(title)
+    truncate(title, :length => 30, :separator => ' ')
+  end
+
   def trailer_link
     # append /videogallery onto the IMDB URL
     "/videogallery"

@@ -6,7 +6,8 @@ module ApplicationHelper
 
   def upcoming_title
     @titles = []
-    @list.each do |movie|
+    # only movies opening this week, @upcoming_list for longer-term
+    @opening_list.each do |movie|
       @titles << movie[0]
     end
     @titles.to_sentence
@@ -14,7 +15,11 @@ module ApplicationHelper
 
   def upcoming_date_list
     @titles = []
-    @list.each do |movie|
+    @opening_list.each do |movie|
+      @titles << "#{movie[0]}"
+    end
+
+    @upcoming_list.each do |movie|
       @titles << "#{movie[0]} in theatres #{movie[1].to_date.strftime('%A %B %e')}"
     end
     @titles.to_sentence

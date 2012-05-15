@@ -1,19 +1,19 @@
 # Connect to Rotten Tomatoes for movies coming in the next month or so
-class Upcoming < ActiveRecord::Base
+class Opening < ActiveRecord::Base
 
   def self.get_response
-    response = HTTParty.get("#{MOVIE_LIST}/upcoming.json?apikey=#{KEY}")
+    response = HTTParty.get("#{MOVIE_LIST}/opening.json?apikey=#{KEY}")
     @response = response["movies"]
   end
 
-  def self.upcoming_movies
+  def self.opening_movies
     self.get_response
     self.fill_list
     self.sort_order
   end
 
   def self.fill_list
-    @upcoming_list = [] # create the movie array
+    @opening_list = [] # create the movie array
 
     @response.each do |m|
       title = m['title'] ||= "Missing title"
@@ -28,11 +28,12 @@ class Upcoming < ActiveRecord::Base
 
       audience = m['ratings']['audience_score'] ||= ""
 
-      @upcoming_list += [[title,release_dates,imdb,poster,audience]]
+      @opening_list += [[title,release_dates,imdb,poster,audience]]
     end
   end
 
   def self.sort_order
-    @upcoming_list = @upcoming_list.sort_by{|release_dates|}#.reverse
+    @opening_list = @opening_list.sort_by{|release_dates|}#.reverse
   end
 end
+

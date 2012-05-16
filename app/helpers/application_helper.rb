@@ -39,8 +39,12 @@ module ApplicationHelper
   end
 
   def upcoming_date(date)
-    dotiw = distance_of_time_in_words(Date.today, date)
-    "Opens in #{dotiw}"
+    if date <= Date.tomorrow
+      "In theatres today"
+    else
+      dotiw = distance_of_time_in_words(Date.today, date)
+      "Opens in #{dotiw}"
+    end
   end
 
   def upcoming_interested(score)

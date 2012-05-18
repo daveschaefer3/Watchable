@@ -20,7 +20,7 @@ module ApplicationHelper
     end
 
     @upcoming_list.each do |movie|
-      @titles << "#{movie[0]} in theatres #{movie[1].to_date.strftime('%A %B %e')}"
+      @titles << "#{movie[0]} in theatres #{movie[1].to_date.strftime('%A %B %-e')}"
     end
     @titles.to_sentence
   end
@@ -40,7 +40,7 @@ module ApplicationHelper
 
   def upcoming_date(date)
     if date <= Date.tomorrow
-      "In theatres today"
+      "In theatres now!"
     else
       dotiw = distance_of_time_in_words(Date.today, date)
       "Opens in #{dotiw}"
@@ -58,6 +58,10 @@ module ApplicationHelper
   def trailer_link
     # append /videogallery onto the IMDB URL
     "/videogallery"
+  end
+
+  def upcoming_poster(movie)
+    link_to image_tag(movie[3], alt: movie[0], size: "40x60"), movie[2], align: "left"
   end
 
   def imdb_logo

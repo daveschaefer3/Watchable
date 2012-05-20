@@ -9,11 +9,6 @@ class UpcomingsController < ApplicationController
     @upcoming_list = Upcoming.upcoming_movies
 
     send_stats
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render }
-    end
   end
 
 private

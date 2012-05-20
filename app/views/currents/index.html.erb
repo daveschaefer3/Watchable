@@ -8,62 +8,33 @@
 <% content_for :footer do %>
 <h2 id="footer-link"><a href="/upcoming">See which films are coming soon</h2>
 <% end %>
+
+<% @list[0..0].each do |movie| %>
 <div id="winner">
   <div class="info-area">
-    <h1 id="winner-title"><%= link_to @title_1, @imdb_1 %></h1>
-    <div id="winner-poster"><%= link_to image_tag(@poster_1, alt: @title_1, size: "180x267"), @imdb_1 %></div>
+    <h1 id="winner-title"><%= link_to movie[2], movie[5] %></h1>
+    <div id="winner-poster"><%= link_to image_tag(movie[3], alt: movie[2], size: "180x267"), movie[5] %></div>
     <div class="winner-description">
-      <p><%= @desc_1 %></p>
-      <span class="score"><%= link_to imdb_logo, @imdb_1 %> <%= @score_1 %>% Watchable</span>
-      <span class="trailer"><span><%= link_to trailer_logo, @imdb_1<<trailer_link %></span><%= link_to "Trailers",  @imdb_1 %></span>
+      <p><%= nicer_quote(movie[4]) %></p>
+      <span class="score"><%= link_to imdb_logo, movie[5] %> <%= nicer_rating(movie[0],movie[1]) %>% Watchable</span>
+      <span class="trailer"><%= link_to trailer_logo, movie[5]<<trailer_link %><%= link_to "Trailers",  movie[5] %></span>
     </div>
   </div>
 </div>
+<% end %>
 
 <div id="runners-up">
+<% @list[1..4].each do |movie| %>
+  <% if nicer_rating(movie[0],movie[1]) > 65 %>
   <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@poster_2, alt: @title_2, size: "100x148"), @imdb_2 %></div>
-    <h1><%= link_to @title_2, @imdb_2 %></h1>
+    <p id="runners-up-poster"><%= link_to image_tag(movie[3], alt: movie[2], size: "100x148"), movie[5] %></p>
+    <h1><%= link_to movie[2], movie[5] %></h1>
     <div class="description">
-      <p><%= @desc_2 %></p>
-      <span class="score"><span><%= link_to imdb_logo, @imdb_2 %></span><%= @score_2 %>% Watchable</span>
-      <span class="trailer"><span><%= link_to trailer_logo, @imdb_2<<trailer_link %></span><%= link_to "Trailers",  @imdb_2 %></span>
+      <p><%= nicer_quote(movie[4]) %></p>
+      <span class="score"><%= link_to imdb_logo, movie[5] %><%= nicer_rating(movie[0],movie[1]) %>% Watchable</span>
+      <span class="trailer"><%= link_to trailer_logo, movie[5]<<trailer_link %><%= link_to "Trailers",  movie[5] %></span>
     </div>
   </div>
-
-<% if @score_3 > 70 %>
-  <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@poster_3, alt: @title_3, size: "100x148"), @imdb_3 %></div>
-    <h1><%= link_to @title_3, @imdb_3 %></h1>
-    <div class="description">
-      <p><%= @desc_3 %></p>
-      <span class="score"><span><%= link_to imdb_logo, @imdb_3 %></span><%= @score_3 %>% Watchable</span>
-      <span class="trailer"><span><%= link_to trailer_logo, @imdb_3<<trailer_link %></span><%= link_to "Trailers",  @imdb_3 %></span>
-    </div>
-  </div>
-<% end %>
-
-<% if @score_4 > 65 %>
-  <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@poster_4, alt: @title_4, size: "100x148"), @imdb_4 %></div>
-    <h1><%= link_to @title_4, @imdb_4 %></h1>
-    <div class="description">
-      <p><%= @desc_4 %></p>
-      <span class="score"><span><%= link_to imdb_logo, @imdb_4 %></span><%= @score_4 %>% Watchable</span>
-      <span class="trailer"><span><%= link_to trailer_logo, @imdb_4<<trailer_link %></span><%= link_to "Trailers",  @imdb_4 %></span>
-    </div>
-  </div>
-<% end %>
-
-<% if @score_5 > 60 %>
-  <div class="info-area">
-    <div id="runners-up-poster"><%= link_to image_tag(@poster_5, alt: @title_5, size: "100x148"), @imdb_5 %></div>
-    <h1><%= link_to @title_5, @imdb_5 %></h1>
-    <div class="description">
-      <p><%= @desc_5 %></p>
-      <span class="score"><span><%= link_to imdb_logo, @imdb_5 %></span><%= @score_5 %>% Watchable</span>
-      <span class="trailer"><span><%= link_to trailer_logo, @imdb_5<<trailer_link %></span><%= link_to "Trailers",  @imdb_5 %></span>
-    </div>
-  </div>
+  <% end %>
 <% end %>
 </div>

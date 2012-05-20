@@ -25,6 +25,14 @@ module ApplicationHelper
     @titles.to_sentence
   end
 
+  def nicer_rating(critical,audience)
+    ( ( critical.to_i * 3 ) + audience.to_i ) / 4
+  end
+
+  def nicer_quote(description)
+    "&#8220;#{description}&#8221;".html_safe
+  end
+
   def title_review_list
     # used in the meta description tag
     a = [@title_1, @title_2, @title_3, @title_4, @title_5]
@@ -60,6 +68,7 @@ module ApplicationHelper
     "/videogallery"
   end
 
+# Images
   def upcoming_poster(movie)
     link_to image_tag(movie[3], alt: movie[0], size: "40x60"), movie[2], align: "left"
   end

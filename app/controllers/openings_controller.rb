@@ -5,14 +5,9 @@ class OpeningsController < ApplicationController
     response.headers['Cache-Control'] = 'public, max-age=72000'
     # 3600 = 60 minutes browser cache, 72000 = 20 hrs
 
-    @list = Opening.opening_movies
+    @openings_list = Opening.opening_movies
 
     send_stats
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render }
-    end
   end
 
 private

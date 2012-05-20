@@ -1,8 +1,5 @@
 # Connect to Rotten Tomatoes and squish out the tomato juice
 class Current < ActiveRecord::Base
-  KEY = "bewstptmhvbxsc7xcj5wbdbu"
-  MOVIE_LIST = "http://api.rottentomatoes.com/api/public/v1.0/lists/movies"
-
   def self.in_theatres
     self.get_response
     self.construct_list
@@ -30,14 +27,13 @@ class Current < ActiveRecord::Base
 
       if m['alternate_ids'].present?
         imdburl = "http://www.imdb.com/title/tt"
-        imdb = "#{imdburl} #{m['alternate_ids']['imdb']}/combined"
+        imdb = "#{imdburl}#{m['alternate_ids']['imdb']}/combined"
       else
         imdb = "http://www.imdb.com/"
         puts "ERRORS: no IMDB ID found on #{title}"
       end
 
       @list += [[critics_score,audience_score,title,poster_url,desc,imdb]]
-    # puts "Movie: #{title}, Score: #{critics_score}, #{audience_score}"
     end
   end
 

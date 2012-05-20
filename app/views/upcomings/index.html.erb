@@ -1,6 +1,6 @@
 <% content_for :head do %>
-<title>Watchable Upcoming movies - <%= upcoming_title %></title>
-<meta name="description" content="Watchable - <%= upcoming_date_list %>" />
+<title>Watchable Upcoming movies - <%= title_sentence(@opening_list,0) %></title>
+<meta name="description" content="Watchable - <%= description_sentence_upcoming %>" />
 <% end %>
 <% content_for :slugline do %>
 Movies opening this week and soon after

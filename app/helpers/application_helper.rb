@@ -1,19 +1,14 @@
 module ApplicationHelper
-  def title_sentence
-    # used in the title tag
-    [@title_1, @title_2, @title_3, @title_4, @title_5].to_sentence
-  end
 
-  def upcoming_title
+  def title_sentence(list,position)
     @titles = []
-    # only movies opening this week, @upcoming_list for longer-term
-    @opening_list.each do |movie|
-      @titles << movie[0]
+    list.each do |movie|
+      @titles << movie[position]
     end
     @titles.to_sentence
   end
 
-  def upcoming_date_list
+  def description_sentence_upcoming
     @titles = []
     @opening_list.each do |movie|
       @titles << "#{movie[0]}"
@@ -22,8 +17,28 @@ module ApplicationHelper
     @upcoming_list.each do |movie|
       @titles << "#{movie[0]} in theatres #{movie[1].to_date.strftime('%A %B %-e')}"
     end
+
     @titles.to_sentence
   end
+
+  def description_sentence_current
+    @titles = []
+
+    @list.each do |movie|
+      @titles << "#{movie[2]} review"
+    end
+
+    @titles.to_sentence
+  end
+
+
+#  def title_review_list
+#    # used in the meta description tag
+#    a = [@title_1, @title_2, @title_3, @title_4, @title_5]
+#    a.map{|r| "#{r} review" }.to_sentence
+#  end
+
+
 
   def nicer_rating(critical,audience)
     ( ( critical.to_i * 3 ) + audience.to_i ) / 4
@@ -31,12 +46,6 @@ module ApplicationHelper
 
   def nicer_quote(description)
     "&#8220;#{description}&#8221;".html_safe
-  end
-
-  def title_review_list
-    # used in the meta description tag
-    a = [@title_1, @title_2, @title_3, @title_4, @title_5]
-    a.map{|r| "#{r} review" }.to_sentence
   end
 
   def slug_line

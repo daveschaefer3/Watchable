@@ -1,6 +1,6 @@
 <% content_for :head do %>
-<title>Watchable - Movies worth watching. This week: <%= title_sentence %></title>
-<meta name="description" content="Watchable - The best-reviewed movies. <%= title_review_list %>" />
+<title>Watchable - Movies worth watching. This week: <%= title_sentence(@list,2) %></title>
+<meta name="description" content="Watchable - The best-reviewed movies. <%= description_sentence_current %>" />
 <% end %>
 <% content_for :slugline do %>
 <%= slug_line %>

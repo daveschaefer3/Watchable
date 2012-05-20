@@ -31,15 +31,6 @@ module ApplicationHelper
     @titles.to_sentence
   end
 
-
-#  def title_review_list
-#    # used in the meta description tag
-#    a = [@title_1, @title_2, @title_3, @title_4, @title_5]
-#    a.map{|r| "#{r} review" }.to_sentence
-#  end
-
-
-
   def nicer_rating(critical,audience)
     ( ( critical.to_i * 3 ) + audience.to_i ) / 4
   end

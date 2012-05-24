@@ -20,8 +20,9 @@ class Opening < ActiveRecord::Base
 
       release_dates = m['release_dates']['theater']
 
+      imdb_id = m['alternate_ids']['imdb'] if m['alternate_ids'].present?
       imdb_url = "http://www.imdb.com"
-      imdb_yes = "#{imdb_url}/title/tt#{m['alternate_ids']['imdb']}/combined"
+      imdb_yes = "#{imdb_url}/title/tt#{imdb_id}/combined"
       imdb = m['alternate_ids'].present? ? imdb_yes : imdb_url
 
       poster = m['posters']['thumbnail'] ||= ""

@@ -25,7 +25,7 @@
 
 <div id="runners-up">
 <% @list[1..7].each do |movie| %>
-  <% if nicer_rating(movie[0],movie[1]) > 65 %>
+  <% if nicer_rating(movie[0],movie[1]) > 75 %>
   <div class="info-area">
     <p id="runners-up-poster"><%= link_to image_tag(movie[3], alt: movie[2], size: "100x148"), movie[5] %></p>
     <h1><%= link_to movie[2], movie[5] %></h1>

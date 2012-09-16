@@ -6,7 +6,7 @@ gem 'json'
 gem 'httparty'
 gem 'therubyracer'
 gem 'pg'
-gem 'metriks'
+# gem 'metriks'
 
 # Gems used only for assets and not required
 # in production environments by default.

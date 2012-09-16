@@ -12,7 +12,7 @@ class OpeningsController < ApplicationController
 
 private
   def send_stats
-    Metriks.meter('Watchable-view').mark
-    Metriks.counter('Watchable-hit').increment
+    #Metriks.meter('Watchable-view').mark
+    #Metriks.counter('Watchable-hit').increment
   end
 end

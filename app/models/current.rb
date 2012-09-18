@@ -22,12 +22,10 @@ class Current < ActiveRecord::Base
 
       poster_url = m['posters']['detailed'] ||= ""
 
-      no_consensus = "Critics could not reach consensus about #{title}"
-      desc = m['critics_consensus'] ||= no_consensus
+      desc = m['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
 
       if m['alternate_ids'].present?
-        imdburl = "http://www.imdb.com/title/tt"
-        imdb = "#{imdburl}#{m['alternate_ids']['imdb']}/combined"
+        imdb = "http://www.imdb.com/title/tt"<<"#{m['alternate_ids']['imdb']}/combined"
       else
         imdb = "http://www.imdb.com/"
         puts "ERRORS: no IMDB ID found on #{title}"

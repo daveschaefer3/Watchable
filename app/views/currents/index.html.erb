@@ -17,7 +17,7 @@
     <div class="winner-description">
       <p><%= nicer_quote(movie[4]) %></p>
       <span class="score"><%= link_to imdb_logo, movie[5] %> <%= nicer_rating(movie[0],movie[1]) %>% Watchable</span>
-      <span class="trailer"><%= link_to trailer_logo, trailer_link(movie[2]), title: trailer_title %><%= link_to "Trailer", trailer_link(movie[2]), title: trailer_title %></span>
+      <span class="trailer"><%= trailer_link(movie[2]) %></span>
     </div>
   </div>
 </div>
@@ -32,7 +32,7 @@
     <div class="description">
       <p><%= nicer_quote(movie[4]) %></p>
       <span class="score"><%= link_to imdb_logo, movie[5] %><%= nicer_rating(movie[0],movie[1]) %>% Watchable</span>
-      <span class="trailer"><%= link_to trailer_logo, trailer_link(movie[2]), title: trailer_title %><%= link_to "Trailers", trailer_link(movie[2]), title: trailer_title %></span>
+      <span class="trailer"><%= trailer_link(movie[2]) %></span>
     </div>
   </div>
   <% end %>

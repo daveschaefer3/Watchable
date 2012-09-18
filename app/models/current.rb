@@ -1,9 +1,12 @@
 # Connect to Rotten Tomatoes and squish out the tomato juice
 class Current < ActiveRecord::Base
-  def self.in_theatres
-    self.get_response
-    self.construct_list
-    self.sort_order
+
+  Current.benchmark("Calculating overall") do
+    def self.in_theatres
+      self.get_response
+      self.construct_list
+      self.sort_order
+    end
   end
 
   def self.get_response
@@ -13,7 +16,6 @@ class Current < ActiveRecord::Base
 
   def self.construct_list
     @list = [] # create the movie array
-
     @response.each do |m|
       title = m['title'] ||= "Missing title"
 

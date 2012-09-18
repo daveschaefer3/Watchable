@@ -60,19 +60,24 @@ module ApplicationHelper
   end
 
   def truncate_title(title)
-    truncate(title, :length => 30, :separator => ' ')
+    truncate(title, length: 30, separator: ' ')
   end
 
-  def trailer_link(title)
-    @item = @client.videos_by(query: title, max_results: 1, most_popular: true)
-    @item.videos.first.media_content.first.url
-
-    # append /videogallery onto an IMDB URL
-    # "/videogallery"
+  def trailer_data(title)
+    benchmark("#{title}: pull the data") do
+      Rails.cache.fetch("cached_data_#{title}", expires_in: 1.day) do
+        @item = @client.videos_by(query: title, max_results: 1, most_popular: true)
+        @item.videos.first.media_content.first.url
+      end
+    end
   end
 
   def trailer_title
-    @item.videos.first.title
+      @item.videos.first.title
+  end
+
+  def trailer_link(movie_title)
+    link_to trailer_logo + "Trailer", trailer_data(movie_title), title: trailer_title
   end
 
 # Images
@@ -124,9 +129,9 @@ QB3omZvywBDqQAAAABJRU5ErkJggg=="
   end
 
   def trailer_logo
-    '<img src="data:image/gif;base64,
-    R0lGODlhHwASAIABAI2Njf7+/iH5BAEAAAEALAAAAAAfABIAAAJBjI+py+0PIwK02ovxDID7
-    Dn5i2B3ZiVZJuS7s1iqv6cq1jcPxrtN57wMaZsOb0PMLDlPMy4Y0ikJfzSpFgs1qDQUAOw=="
-     alt="Trailer" width="31" height="18" class="video">'.html_safe
+'<img src="data:image/gif;base64,
+R0lGODlhHwASAIABAI2Njf7+/iH5BAEAAAEALAAAAAAfABIAAAJBjI+py+0PIwK02ovxDID7
+Dn5i2B3ZiVZJuS7s1iqv6cq1jcPxrtN57wMaZsOb0PMLDlPMy4Y0ikJfzSpFgs1qDQUAOw=="
+ alt="::" width="31" height="18" class="video">'.html_safe
   end
 end

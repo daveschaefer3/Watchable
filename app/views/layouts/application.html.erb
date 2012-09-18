@@ -33,6 +33,7 @@ We only ever wanted to try
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
   <meta name="viewport" content="width=580" />
   <link rel="shortcut icon" href="/assets/favicon.ico" />
+  <%= render 'layouts/analytics' %>
 </head>
 <body>
   <div id="header">
@@ -44,6 +45,5 @@ We only ever wanted to try
     <%= yield :footer %>
     <p><a href="http://dougstewart.org/">Made for you by Doug</a>. This website updates all the damn time.</p>
   </div>
-  <%= render :partial => 'layouts/analytics' %>
 </body>
 </html>

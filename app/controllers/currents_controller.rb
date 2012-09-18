@@ -1,7 +1,7 @@
 # Poorly splitting up the return from the model for the view
 class CurrentsController < ApplicationController
 
-  caches_page :index
+  caches_action :index
 
   def index
       response.headers['Cache-Control'] = 'public, max-age=72000'

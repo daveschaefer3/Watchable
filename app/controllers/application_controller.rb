@@ -1,4 +1,4 @@
-# I don't do shit in this app!
+# Set up some of the basic pieces
 class ApplicationController < ActionController::Base
   protect_from_forgery
 end

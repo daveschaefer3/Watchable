@@ -63,9 +63,16 @@ module ApplicationHelper
     truncate(title, :length => 30, :separator => ' ')
   end
 
-  def trailer_link
-    # append /videogallery onto the IMDB URL
-    "/videogallery"
+  def trailer_link(title)
+    @item = @client.videos_by(query: title, max_results: 1, most_popular: true)
+    @item.videos.first.media_content.first.url
+
+    # append /videogallery onto an IMDB URL
+    # "/videogallery"
+  end
+
+  def trailer_title
+    @item.videos.first.title
   end
 
 # Images

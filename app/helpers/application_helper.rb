@@ -82,7 +82,9 @@ module ApplicationHelper
 
 # Images
   def upcoming_poster(movie)
-    link_to image_tag(movie[3], alt: movie[0], size: "40x60"), movie[2], align: "left"
+    # If we want the poster to be linked
+    # link_to image_tag(movie[3], alt: movie[0], size: "40x60"), movie[2], align: "left"
+    image_tag(movie[3], alt: movie[0], size: "40x60")
   end
 
   def imdb_logo

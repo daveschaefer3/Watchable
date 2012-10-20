@@ -15,7 +15,7 @@
 <div id="winner">
   <div class="info-area">
     <h1 id="winner-title"><%= link_to movie[2], movie[5] %></h1>
-    <div id="winner-poster"><%= link_to image_tag(movie[3], alt: movie[2], size: "180x267"), movie[5] %></div>
+    <div id="winner-poster"><%= image_tag(movie[3], alt: movie[2], size: "180x267") %></div>
     <div class="winner-description">
       <p><%= nicer_quote(movie[4]) %></p>
       <span class="score"><%= link_to imdb_logo, movie[5] %> <%= nicer_rating(movie[0],movie[1]) %>% Watchable</span>
@@ -29,7 +29,7 @@
 <% @list[1..7].each do |movie| %>
   <% if nicer_rating(movie[0],movie[1]) > 75 %>
   <div class="info-area">
-    <p id="runners-up-poster"><%= link_to image_tag(movie[3], alt: movie[2], size: "100x148"), movie[5] %></p>
+    <p id="runners-up-poster"><%= image_tag(movie[3], alt: movie[2], size: "100x148") %></p>
     <h1><%= link_to movie[2], movie[5] %></h1>
     <div class="description">
       <p><%= nicer_quote(movie[4]) %></p>

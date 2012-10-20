@@ -2,9 +2,11 @@
 <title>Watchable - Movies worth watching. This week: <%= title_sentence(@list,2) %></title>
 <meta name="description" content="Watchable - The best-reviewed movies. <%= description_sentence_current %>" />
 <% end %>
+
 <% content_for :slugline do %>
 <%= slug_line %>
 <% end %>
+
 <% content_for :footer do %>
 <h2 id="footer-link"><a href="/upcoming">See which films are coming soon</h2>
 <% end %>
@@ -38,3 +40,16 @@
   <% end %>
 <% end %>
 </div>
+
+<script>
+// Make entire block clickable w/URL of the first a element found
+$(".info-area").click(function(){
+  window.location=$(this).find("a").attr("href");
+  return false;
+});
+// Preserve the trailer block and have it also be clickable
+$(".trailer").click(function(){
+  window.location=$(this).find("a").attr("href");
+  return false;
+});
+</script>

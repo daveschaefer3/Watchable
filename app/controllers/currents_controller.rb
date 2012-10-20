@@ -4,11 +4,10 @@ class CurrentsController < ApplicationController
   caches_action :index
 
   def index
-      response.headers['Cache-Control'] = 'public, max-age=72000'
-      # 3600 = 60 minutes browser cache, 72000 = 20 hrs
-      @list = Current.in_theatres
-      create_client
-      send_stats
+    response.headers['Cache-Control'] = 'public, max-age=72000'
+    @list = Current.in_theatres
+    create_client
+    send_stats
   end
 
 private

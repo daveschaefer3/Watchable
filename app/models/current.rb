@@ -41,7 +41,6 @@ class Current < ActiveRecord::Base
     # take the list, sort it by critic's score, get the top five items,
     # then reverse it so it's in descending order
     @list = @list.sort_by{|critics_score| critics_score*+1}.reverse
-    # artificially limit it to five films:
-    # @list = @list.sort_by{|critics_score| critics_score*+1}.pop(5).reverse
+    # artificially limit it to five films, append: .pop(5).reverse
   end
 end

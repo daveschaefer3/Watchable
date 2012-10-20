@@ -278,6 +278,9 @@ h2 {
 #winner #winner-poster img:hover {
   @include light-box-shadow(20px,50%);
   }
+.info-area:hover {
+  cursor: pointer;
+}
 
 .imdb, .video {position:relative; top:4px; padding-right: 4px;}
 #winner .imdb, #winner .video {top:3px;}
@@ -337,6 +340,11 @@ h2 {
   min-height: 75px;
   line-height: 1em;
   }
+.upcoming-movie:hover {
+  cursor: pointer;
+  @include box-shadow(9px, #000);
+  @include radial-gradient(132, 16, 16, 3, 5, 7);
+}
 
 .upcoming-movie a { color: $creme; text-decoration: none; }
 .upcoming-poster { float: left; }

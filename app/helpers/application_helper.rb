@@ -65,7 +65,7 @@ module ApplicationHelper
 
   def trailer_data(title)
     benchmark("#{title}: pull the data") do
-      Rails.cache.fetch("cached_data_#{title}", expires_in: 1.day) do
+      Rails.cache.fetch("cached_data_#{title}", expires_in: 1.hour) do
         @item = @client.videos_by(query: title, max_results: 1, most_popular: true)
         @item.videos.first.media_content.first.url
       end

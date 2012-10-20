@@ -2,6 +2,7 @@
 <title>Watchable Upcoming movies - <%= title_sentence(@opening_list,0) %></title>
 <meta name="description" content="Watchable - <%= description_sentence_upcoming %>" />
 <% end %>
+
 <% content_for :slugline do %>
 Movies opening this week and soon after
 <% end %>
@@ -36,3 +37,10 @@ Movies opening this week and soon after
   </div>
 <% end %>
 <% end %>
+
+<script>
+$(".upcoming-movie").click(function(){
+  window.location=$(this).find("a").attr("href");
+  return false;
+});
+</script>

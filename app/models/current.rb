@@ -40,7 +40,7 @@ class Current < ActiveRecord::Base
   def self.sort_order
     # take the list, sort it by critic's score, get the top five items,
     # then reverse it so it's in descending order
-    @list = @list.sort_by{|critics_score| critics_score*+1}.reverse
+    @list = @list.sort_by{|critics_score| critics_score}.reverse
     # artificially limit it to five films, append: .pop(5).reverse
   end
 end

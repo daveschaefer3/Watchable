@@ -41,12 +41,13 @@ class Disc < ActiveRecord::Base
       critics_score = m['ratings']['critics_score'] ||= "80"
       audience_score = m['ratings']['audience_score'] ||= "80"
 
-      @list += [[title,release_dates,imdb,poster,critics_score,audience_score]]
+      watchable_score = ( ( critics_score.to_i * 3 ) + audience_score.to_i ) / 4
+
+      @list += [[title,release_dates,imdb,poster,critics_score,audience_score,watchable_score]]
     end
   end
 
   def self.sort_order
-    puts "#{@list} $$$$$$$$$$$$$$$$$$$$$$$"
-    @list = @list.sort_by{|critics_score| critics_score*+1}
+    @list.sort_by!{ |x| x[6] }.reverse!
   end
 end

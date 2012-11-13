@@ -33,6 +33,6 @@ class Upcoming < ActiveRecord::Base
   end
 
   def self.sort_order
-    @upcoming_list = @upcoming_list.sort_by{|release_dates|}#.reverse
+    @upcoming_list.sort_by!{ |x| x[4] }.reverse!
   end
 end

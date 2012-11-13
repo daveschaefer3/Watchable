@@ -34,7 +34,7 @@ class Opening < ActiveRecord::Base
   end
 
   def self.sort_order
-    @opening_list = @opening_list.sort_by{|release_dates|}#.reverse
+    @opening_list.sort_by!{ |x| x[4] }.reverse!
   end
 end
 

@@ -47,6 +47,6 @@ class Disc < ActiveRecord::Base
 
   def self.sort_order
     puts "#{@list} $$$$$$$$$$$$$$$$$$$$$$$"
-    @list = @list.sort_by{|critics_score.to_i| critics_score.to_i*+1}.reverse
+    @list = @list.sort_by{|critics_score| critics_score*+1}
   end
 end

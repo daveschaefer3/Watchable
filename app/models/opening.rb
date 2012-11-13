@@ -1,4 +1,4 @@
-# Connect to Rotten Tomatoes for movies coming in the next month or so
+# Connect to Rotten Tomatoes for movies opening in the next week or so
 class Opening < ActiveRecord::Base
 
   def self.get_response

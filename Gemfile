@@ -21,6 +21,7 @@ group :development do
   gem 'brakeman'
   gem 'cane'
   gem 'rails_best_practices'
+  gem 'ap'
 end
 
 gem 'jquery-rails'

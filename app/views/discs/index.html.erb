@@ -1,0 +1,46 @@
+<% content_for :head do %>
+<title>Watchable DVD and Blu-ray releases- <%= title_sentence(@discs_current_releases,0) %></title>
+<meta name="description" content="Watchable - The best-reviewed DVD and Blu-Ray movies." />
+<% end %>
+
+<% content_for :slugline do %>
+DVD and Blu-ray releases
+<% end %>
+
+<div class="menu">
+  <ul>
+    <li><a href="#recent">Recent releases on DVD and Blu-Ray</a></li>
+    <li><a href="#opening">This week’s DVD and Blu-Ray releases</a></li>
+  </ul>
+</div>
+
+<a name="recent"></a>
+<h2>Recent releases on DVD and Blu-Ray</h2>
+<% @discs_current_releases.each do |movie| %>
+<% if nicer_rating(movie[4],movie[5]) > 80 %>
+  <div class="score upcoming-movie">
+    <p class="upcoming-poster"><%= upcoming_poster(movie) %></p>
+    <h1 class="title-and-date"><%= link_to truncate_title(movie[0]), movie[2] %></h1>
+    <p class="upcoming-date"><small><%= nicer_rating(movie[4],movie[5]) %>% Watchable</small></p>
+  </div>
+<% end %>
+<% end %>
+
+<a name="opening"></a>
+<h2>DVD and Blu-Ray releases this week</h2>
+<% @discs_new_releases.each do |movie| %>
+<% if nicer_rating(movie[4],movie[5]) > 80 %>
+  <div class="score upcoming-movie">
+    <p class="upcoming-poster"><%= upcoming_poster(movie) %></p>
+    <h1 class="title-and-date"><%= link_to truncate_title(movie[0]), movie[2] %></h1>
+    <p class="upcoming-date"><small><%= nicer_rating(movie[4],movie[5]) %>% Watchable</small></p>
+  </div>
+<% end %>
+<% end %>
+
+<script>
+$(".upcoming-movie").click(function(){
+  window.location=$(this).find("a").attr("href");
+  return false;
+});
+</script>

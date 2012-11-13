@@ -5,7 +5,7 @@ class OpeningsController < ApplicationController
     response.headers['Cache-Control'] = 'public, max-age=72000'
     # 3600 = 60 minutes browser cache, 72000 = 20 hrs
 
-    @openings_list = Opening.opening_movies
+    @opening_list = Opening.opening_movies
 
     send_stats
   end

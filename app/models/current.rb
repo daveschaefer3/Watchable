@@ -1,4 +1,4 @@
-# Connect to Rotten Tomatoes and squish out the tomato juice
+# Connect to Rotten Tomatoes and squish out the in-theatre tomato juice
 class Current < ActiveRecord::Base
 
   Current.benchmark("Calculating overall") do

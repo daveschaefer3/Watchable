@@ -38,12 +38,14 @@ class Disc < ActiveRecord::Base
 
       poster = m['posters']['thumbnail'] ||= ""
 
+      desc = m['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
+
       critics_score = m['ratings']['critics_score'] ||= "80"
       audience_score = m['ratings']['audience_score'] ||= "80"
 
       watchable_score = ( ( critics_score.to_i * 3 ) + audience_score.to_i ) / 4
 
-      @list += [[title,release_dates,imdb,poster,critics_score,audience_score,watchable_score]]
+      @list += [[title,release_dates,imdb,poster,critics_score,audience_score,watchable_score,desc]]
     end
   end
 

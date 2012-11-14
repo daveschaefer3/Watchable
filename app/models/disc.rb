@@ -36,7 +36,7 @@ class Disc < ActiveRecord::Base
       imdb_yes = "#{imdb_url}/title/tt#{m['alternate_ids']['imdb']}/combined"
       imdb = m['alternate_ids'].present? ? imdb_yes : imdb_url
 
-      poster = m['posters']['thumbnail'] ||= ""
+      poster = m['posters']['detailed'] ||= ""
 
       desc = m['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
 

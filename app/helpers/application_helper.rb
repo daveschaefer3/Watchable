@@ -87,6 +87,10 @@ module ApplicationHelper
     image_tag(movie[3], alt: movie[0], size: "40x60")
   end
 
+  def disc_poster(movie)
+    image_tag(movie[3], alt: movie[0], size: "100x148")
+  end
+
   def imdb_logo
 '<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACMAAAARCAYAAABXax
 X/AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZ

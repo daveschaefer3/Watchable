@@ -24,4 +24,11 @@ group :development do
   gem 'ap'
 end
 
+group :development, :test do
+  gem 'rspec-rails', '2.8.1'
+  gem 'capybara'
+  gem 'capybara-webkit'
+  gem 'database_cleaner'
+end
+
 gem 'jquery-rails'

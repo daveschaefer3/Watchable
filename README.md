@@ -13,9 +13,10 @@ The goal for this app is to suggest current wide-release movies that critics and
   
 ## Riggings  
 
-Rails 3.1, SCSS, [Rotten Tomatoes API][]  
+Rails 3.1, SCSS, [Rotten Tomatoes API][], [YouTube API][]  
   
 [Rotten Tomatoes API]: http://developer.rottentomatoes.com/docs
+[YouTube API]: https://developers.google.com/youtube/
   
 ## Humans.txt  
   

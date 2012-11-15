@@ -26,12 +26,7 @@ class Current < ActiveRecord::Base
 
       desc = m['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
 
-      if m['alternate_ids'].present?
-        imdb = "http://www.imdb.com/title/tt"<<"#{m['alternate_ids']['imdb']}/combined"
-      else
-        imdb = "http://www.imdb.com/"
-        puts "ERRORS: no IMDB ID found on #{title}"
-      end
+      imdb = "http://www.imdb.com/title/tt"<<"#{m['alternate_ids']['imdb']}/combined"
 
       @list += [[critics_score,audience_score,title,poster_url,desc,imdb]]
     end

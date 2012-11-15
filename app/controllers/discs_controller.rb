@@ -1,5 +1,5 @@
+# Return the latest DVD/Blu-Ray releases worth watching
 class DiscsController < ApplicationController
-
   def index
     response.headers['Cache-Control'] = 'public, max-age=72000'
 

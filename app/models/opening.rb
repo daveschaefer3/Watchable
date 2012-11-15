@@ -17,16 +17,12 @@ class Opening < ActiveRecord::Base
 
     @response.each do |m|
       title = m['title'] ||= "Missing title"
-
       release_dates = m['release_dates']['theater']
-
       imdb_id = m['alternate_ids']['imdb'] if m['alternate_ids'].present?
       imdb_url = "http://www.imdb.com"
       imdb_yes = "#{imdb_url}/title/tt#{imdb_id}/combined"
       imdb = m['alternate_ids'].present? ? imdb_yes : imdb_url
-
       poster = m['posters']['thumbnail'] ||= ""
-
       audience = m['ratings']['audience_score'] ||= ""
 
       @opening_list += [[title,release_dates,imdb,poster,audience]]

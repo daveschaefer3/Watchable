@@ -13,9 +13,9 @@
 
 ActiveRecord::Schema.define(:version => 20111009153100) do
 
-  create_table "grabs", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+  create_table "currents", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
 end

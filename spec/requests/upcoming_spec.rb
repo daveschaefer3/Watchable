@@ -1,12 +1,16 @@
 require 'spec_helper'
 
 describe 'Upcoming page' do
-  it 'should get a response' do
-    Upcoming.get_response.should_not be_empty
+  it 'Upcoming releases should get a response' do
+    Upcoming.upcoming_movies.should_not be_empty
   end
 
-  it 'should get get appropriate upcoming-film data' do
-    response = Upcoming.get_response
+  it 'Opening releases should get a response' do
+    Upcoming.opening_movies.should_not be_empty
+  end
+
+  it 'Upcoming response should get get appropriate upcoming-film data' do
+    response = Upcoming.upcoming_movies
     response.first['title'].should_not be_empty
     response.first['release_dates']['theater'].should match(/^\d{4}-\d{2}-\d{2}$/)
     response.first['ratings']['audience_score'].to_s.should match(/^\d{1,3}+$/i)
@@ -14,8 +18,8 @@ describe 'Upcoming page' do
     response.first['alternate_ids']['imdb'].should match(/^\d{7}+$/i)
   end
 
-  it 'should get get appropriate opening-film data' do
-    response = Opening.get_response
+  it 'Opening response should get get appropriate opening-film data' do
+    response = Upcoming.opening_movies
     response.first['title'].should_not be_empty
     response.first['release_dates']['theater'].should match(/^\d{4}-\d{2}-\d{2}$/)
     response.first['ratings']['audience_score'].to_s.should match(/^\d{1,3}+$/i)

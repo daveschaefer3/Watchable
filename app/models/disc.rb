@@ -2,13 +2,13 @@
 class Disc < ActiveRecord::Base
 
   def self.current_releases
-    discs_current_releases = HTTParty.get("#{DISC_LIST}/current_releases?apikey=#{KEY}")
-    @response = discs_current_releases["movies"]
+    response = HTTParty.get("#{DISC_LIST}/current_releases?apikey=#{KEY}")
+    @response = response["movies"]
   end
 
   def self.new_releases
-    discs_new_releases = HTTParty.get("#{DISC_LIST}/new_releases?apikey=#{KEY}")
-    @response = discs_new_releases["movies"]
+    response = HTTParty.get("#{DISC_LIST}/new_releases?apikey=#{KEY}")
+    @response = response["movies"]
   end
 
 # YES, this is all huge and ugly and verbose. I'll make better methods to pass these in once it works
@@ -30,11 +30,7 @@ class Disc < ActiveRecord::Base
     @response.each do |m|
       title = m['title'] ||= "Missing title"
       release_dates = m['release_dates']['dvd']
-
-      imdb_url = "http://www.imdb.com"
-      imdb_yes = "#{imdb_url}/title/tt#{m['alternate_ids']['imdb']}/combined"
-      imdb = m['alternate_ids'].present? ? imdb_yes : imdb_url
-
+      imdb = "http://www.imdb.com/title/tt#{m['alternate_ids']['imdb']}/combined"
       poster = m['posters']['detailed'] ||= ""
       desc = m['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
       critics_score = m['ratings']['critics_score'] ||= "80"

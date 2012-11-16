@@ -10,11 +10,11 @@ module ApplicationHelper
 
   def description_sentence_upcoming
     @titles = []
-    @opening_list.each do |movie|
+    @opening_movies_list.each do |movie|
       @titles << "#{movie[0]}"
     end
 
-    @upcoming_list.each do |movie|
+    @upcoming_movies_list.each do |movie|
       @titles << "#{movie[0]} in theatres #{movie[1].to_date.strftime('%A %B %-e')}"
     end
 

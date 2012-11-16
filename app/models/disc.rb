@@ -1,25 +1,19 @@
 # DVD and Blu-ray releases
 class Disc < ActiveRecord::Base
 
-  def self.current_releases
-    response = HTTParty.get("#{DISC_LIST}/current_releases?apikey=#{KEY}")
+  def self.releases(list)
+    response = HTTParty.get("#{DISC_LIST}/#{list}?apikey=#{KEY}")
     @response = response["movies"]
   end
 
-  def self.new_releases
-    response = HTTParty.get("#{DISC_LIST}/new_releases?apikey=#{KEY}")
-    @response = response["movies"]
-  end
-
-# YES, this is all huge and ugly and verbose. I'll make better methods to pass these in once it works
   def self.current_releases_list
-    self.current_releases
+    self.releases("current_releases")
     self.fill_list
     self.sort_order
   end
 
   def self.new_releases_list
-    self.new_releases
+    self.releases("new_releases")
     self.fill_list
     self.sort_order
   end

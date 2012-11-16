@@ -1,25 +1,19 @@
 # Connect to Rotten Tomatoes for movies coming in the next month or so
 class Upcoming < ActiveRecord::Base
 
-  def self.opening_movies
-    response = HTTParty.get("#{MOVIE_LIST}/opening.json?apikey=#{KEY}")
+  def self.releases(list)
+    response = HTTParty.get("#{MOVIE_LIST}/#{list}.json?apikey=#{KEY}")
     @response = response["movies"]
   end
 
-  def self.upcoming_movies
-    response = HTTParty.get("#{MOVIE_LIST}/upcoming.json?apikey=#{KEY}")
-    @response = response["movies"]
-  end
-
-# YES, this is all huge and ugly and verbose. I'll make better methods to pass these in once it works
   def self.opening_movies_list
-    self.opening_movies
+    self.releases("opening")
     self.fill_list
     self.sort_order
   end
 
   def self.upcoming_movies_list
-    self.upcoming_movies
+    self.releases("upcoming")
     self.fill_list
     self.sort_order
   end

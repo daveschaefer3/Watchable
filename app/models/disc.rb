@@ -26,16 +26,12 @@ class Disc < ActiveRecord::Base
       imdb = "http://www.imdb.com/title/tt#{m['alternate_ids']['imdb']}/combined"
       poster = m['posters']['detailed'] ||= ""
       desc = m['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
-      self.calculate_score(m)
+      cs = m['ratings']['critics_score'].to_i ||= 0
+      as = m['ratings']['audience_score'].to_i ||= 0
+      watchable_score = ( ( cs * 3 ) + as ) / 4
 
       @list += [[title,imdb,poster,watchable_score,desc]]
     end
-  end
-
-  def self.calculate_score(m)
-    cs = m['ratings']['critics_score'].to_i ||= 0
-    as = m['ratings']['audience_score'].to_i ||= 0
-    watchable_score = ( ( cs * 3 ) + as ) / 4
   end
 
   def self.sort_order

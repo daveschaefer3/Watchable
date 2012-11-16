@@ -87,8 +87,8 @@ module ApplicationHelper
     image_tag(movie[3], alt: movie[0], size: "40x60")
   end
 
-  def disc_poster(movie)
-    image_tag(movie[3], alt: movie[0], size: "100x148")
+  def disc_poster(url,title)
+    image_tag(url, alt: title, size: "100x148")
   end
 
   def favicon

@@ -17,27 +17,27 @@ DVD and Blu-ray releases
 <a name="recent"></a>
 <h2>Out now on DVD/Blu-Ray, and worth watching!</h2>
 <% @discs_current_releases.each do |movie| %>
-<% if movie[3] > 80 %>
-  <div class="disc-description upcoming-movie disc">
-    <p class="upcoming-poster"><%= disc_poster(movie) %></p>
-    <h1 class="title-and-date"><%= link_to truncate_title(movie[0]), movie[2] %></h1>
-    <small>(<%= "#{movie[3]}% Watchable" %>)</small>
-    <p><%= nicer_quote(movie[6]) %></p>
-  </div>
-<% end %>
+  <% if movie[3] > 80 %>
+    <div class="disc-description upcoming-movie disc">
+      <p class="upcoming-poster"><%= disc_poster(movie[2],movie[0]) %></p>
+      <h1 class="title-and-date"><%= link_to truncate_title(movie[0]), movie[1] %></h1>
+      <small>(<%= "#{movie[3]}% Watchable" %>)</small>
+      <p><%= nicer_quote(movie[4]) %></p>
+    </div>
+  <% end %>
 <% end %>
 
 <a name="opening"></a>
 <h2>DVD and Blu-Ray releases this week</h2>
 <% @discs_new_releases.each do |movie| %>
-<% if movie[3] > 80 %>
-  <div class="disc-description upcoming-movie disc">
-    <p class="upcoming-poster"><%= disc_poster(movie) %></p>
-    <h1 class="title-and-date"><%= link_to truncate_title(movie[0]), movie[2] %></h1>
-    <small>(<%= "#{movie[3]}% Watchable" %>)</small>
-    <p><%= nicer_quote(movie[6]) %></p>
-  </div>
-<% end %>
+  <% if movie[3] > 80 %>
+    <div class="disc-description upcoming-movie disc">
+      <p class="upcoming-poster"><%= disc_poster(movie[2],movie[0]) %></p>
+      <h1 class="title-and-date"><%= link_to truncate_title(movie[0]), movie[1] %></h1>
+      <small>(<%= "#{movie[3]}% Watchable" %>)</small>
+      <p><%= nicer_quote(movie[4]) %></p>
+    </div>
+  <% end %>
 <% end %>
 
 <script>

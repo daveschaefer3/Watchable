@@ -21,18 +21,18 @@ class Upcoming < ActiveRecord::Base
   def self.fill_list
     @list = [] # create the movie array
 
-    @response.each do |m|
-      title = m['title'] ||= "Missing title"
-      release_date = m['release_dates']['theater']
-      imdb = "http://www.imdb.com/title/tt#{m['alternate_ids']['imdb']}/combined"
-      poster = m['posters']['thumbnail'] ||= ""
-      audience = m['ratings']['audience_score'] ||= ""
+    @response.each do |movie|
+      title = movie['title'] ||= "Missing title"
+      release_date = movie['release_dates']['theater']
+      imdb = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined"
+      poster = movie['posters']['thumbnail'] ||= ""
+      audience = movie['ratings']['audience_score'] ||= ""
 
       @list += [[title,release_date,imdb,poster,audience]]
     end
   end
 
   def self.sort_order
-    @list.sort_by!{ |x| x[4] }.reverse!
+    @list.sort_by!{ |list_items| list_items[4] }.reverse!
   end
 end

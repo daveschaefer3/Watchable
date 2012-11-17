@@ -16,20 +16,25 @@ end
 
   def self.construct_list
     @list = [] # create the movie array
-    @response.each do |m|
-      title = m['title'] ||= "Missing title"
-      critics_score = m['ratings']['critics_score'] ||= "80"
-      audience_score = m['ratings']['audience_score'] ||= "80"
-      poster_url = m['posters']['detailed'] ||= ""
-      desc = m['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
-      imdb = "http://www.imdb.com/title/tt"<<"#{m['alternate_ids']['imdb']}/combined"
+    @response.each do |movie|
+      title = movie['title'] ||= "Missing title"
 
-      @list += [[critics_score,audience_score,title,poster_url,desc,imdb]]
+      watchable_score = self.ratings(movie['ratings'])
+
+      poster_url = movie['posters']['detailed'] ||= ""
+      desc = movie['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
+      imdb = "http://www.imdb.com/title/tt"<<"#{movie['alternate_ids']['imdb']}/combined"
+
+      @list += [[watchable_score,title,poster_url,desc,imdb]]
     end
   end
 
+  def self.ratings(movie)
+    ( ( movie['critics_score'] * 3 ) + movie['audience_score'] ) / 4
+  end
+
   def self.sort_order
-    @list = @list.sort_by{|critics_score| critics_score}.reverse
+    @list = @list.sort_by{|critics_score| critics_score}.reverse!
     # artificially limit it to five films, append: .pop(5).reverse
   end
 end

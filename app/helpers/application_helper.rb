@@ -31,18 +31,15 @@ module ApplicationHelper
     @titles.to_sentence
   end
 
-  def nicer_rating(critical,audience)
-    ( ( critical.to_i * 3 ) + audience.to_i ) / 4
-  end
-
   def nicer_quote(description)
     "&#8220;#{description}&#8221;".html_safe
   end
 
   def slug_line
+    today = Date.today
     # used as the site's slogan of-sorts
-    month = "#{Date.today.strftime('%b ')}"
-    day = "#{Date.today.strftime('%d').to_i.ordinalize}"
+    month = "#{today.strftime('%b ')}"
+    day = "#{today.strftime('%d').to_i.ordinalize}"
     "Movies worth watching, #{month} #{day}."
   end
 
@@ -64,11 +61,9 @@ module ApplicationHelper
   end
 
   def trailer_data(title)
-    benchmark("#{title}: pull the data") do
-      Rails.cache.fetch("cached_data_#{title}", expires_in: 1.hour) do
-        @item = @client.videos_by(query: title, max_results: 1, most_popular: true)
-        @item.videos.first.media_content.first.url
-      end
+    Rails.cache.fetch("cached_data_#{title}", expires_in: 12.hours) do
+      @item = @client.videos_by(query: title, max_results: 1, most_popular: true)
+      @item.videos.first.media_content.first.url
     end
   end
 
@@ -82,8 +77,6 @@ module ApplicationHelper
 
 # Images
   def upcoming_poster(movie)
-    # If we want the poster to be linked
-    # link_to image_tag(movie[3], alt: movie[0], size: "40x60"), movie[2], align: "left"
     image_tag(movie[3], alt: movie[0], size: "40x60")
   end
 

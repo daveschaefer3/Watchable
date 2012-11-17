@@ -1,5 +1,5 @@
 <% content_for :head do %>
-<title>Watchable - Movies worth watching. This week: <%= title_sentence(@list,2) %></title>
+<title>Watchable - Movies worth watching. This week: <%= title_sentence(@list,1) %></title>
 <meta name="description" content="Watchable - The best-reviewed movies. <%= description_sentence_current %>" />
 <% end %>
 
@@ -15,12 +15,12 @@
 <% @list[0..0].each do |movie| %>
 <div id="winner">
   <div class="info-area">
-    <h1 id="winner-title"><%= link_to movie[2], movie[5] %></h1>
-    <div id="winner-poster"><%= image_tag(movie[3], alt: movie[2], size: "180x267") %></div>
+    <h1 id="winner-title"><%= link_to movie[1], movie[4] %></h1>
+    <div id="winner-poster"><%= image_tag(movie[2], alt: movie[1], size: "180x267") %></div>
     <div class="winner-description">
-      <p><%= nicer_quote(movie[4]) %></p>
-      <span class="score"><%= link_to imdb_logo, movie[5] %> <%= nicer_rating(movie[0],movie[1]) %>% Watchable</span>
-      <span class="trailer"><%= trailer_link(movie[2]) %></span>
+      <p><%= nicer_quote(movie[3]) %></p>
+      <span class="score"><%= link_to imdb_logo, movie[4] %> <%= "#{movie[0]}% Watchable" %></span>
+      <span class="trailer"><%= trailer_link(movie[1]) %></span>
     </div>
   </div>
 </div>
@@ -28,14 +28,14 @@
 
 <div id="runners-up">
 <% @list[1..7].each do |movie| %>
-  <% if nicer_rating(movie[0],movie[1]) > 75 %>
+  <% if movie[0] > 75 %>
   <div class="info-area">
-    <p id="runners-up-poster"><%= image_tag(movie[3], alt: movie[2], size: "100x148") %></p>
-    <h1><%= link_to movie[2], movie[5] %></h1>
+    <p id="runners-up-poster"><%= image_tag(movie[2], alt: movie[1], size: "100x148") %></p>
+    <h1><%= link_to movie[1], movie[4] %></h1>
     <div class="description">
-      <p><%= nicer_quote(movie[4]) %></p>
-      <span class="score"><%= link_to imdb_logo, movie[5] %><%= nicer_rating(movie[0],movie[1]) %>% Watchable</span>
-      <span class="trailer"><%= trailer_link(movie[2]) %></span>
+      <p><%= nicer_quote(movie[3]) %></p>
+      <span class="score"><%= link_to imdb_logo, movie[4] %><%= "#{movie[0]}% Watchable" %></span>
+      <span class="trailer"><%= trailer_link(movie[1]) %></span>
     </div>
   </div>
   <% end %>

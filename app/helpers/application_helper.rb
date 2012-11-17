@@ -25,7 +25,7 @@ module ApplicationHelper
     @titles = []
 
     @list.each do |movie|
-      @titles << "#{movie[2]} review"
+      @titles << "#{movie[1]} review"
     end
 
     @titles.to_sentence

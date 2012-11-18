@@ -10,24 +10,14 @@ module ApplicationHelper
 
   def description_sentence_upcoming
     @titles = []
-    @opening_movies_list.each do |movie|
-      @titles << "#{movie[0]}"
-    end
-
-    @upcoming_movies_list.each do |movie|
-      @titles << "#{movie[0]} in theatres #{movie[1].to_date.strftime('%A %B %-e')}"
-    end
-
+    @opening_movies_list.each { |movie| @titles << "#{movie[0]}" }
+    @upcoming_movies_list.each { |movie| @titles << "#{movie[0]} in theatres #{movie[1].to_date.strftime('%A %B %-e')}" }
     @titles.to_sentence
   end
 
   def description_sentence_current
     @titles = []
-
-    @list.each do |movie|
-      @titles << "#{movie[1]} review"
-    end
-
+    @list.each { |movie| @titles << "#{movie[1]} review" }
     @titles.to_sentence
   end
 
@@ -37,10 +27,7 @@ module ApplicationHelper
 
   def slug_line
     today = Date.today
-    # used as the site's slogan of-sorts
-    month = "#{today.strftime('%b ')}"
-    day = "#{today.strftime('%d').to_i.ordinalize}"
-    "Movies worth watching, #{month} #{day}."
+    "Movies worth watching, #{today.strftime('%b ')} #{today.strftime('%d').to_i.ordinalize}."
   end
 
   def upcoming_date(date)
@@ -61,7 +48,7 @@ module ApplicationHelper
   end
 
   def trailer_data(title)
-    Rails.cache.fetch("cached_data_#{title}", expires_in: 12.hours) do
+    Rails.cache.fetch("cached_data_#{title}", expires_in: 1.day) do
       @item = @client.videos_by(query: title, max_results: 1, most_popular: true)
       @item.videos.first.media_content.first.url
     end

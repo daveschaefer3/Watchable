@@ -24,7 +24,6 @@ class Upcoming < ActiveRecord::Base
     @response.each do |movie|
       title = movie['title'] ||= "Missing title"
       release_date = movie['release_dates']['theater']
-      # imdb = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined"
 
       if movie['alternate_ids']
         imdb = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined"

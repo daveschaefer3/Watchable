@@ -28,7 +28,7 @@
 
 <div id="runners-up">
 <% @list[1..7].each do |movie| %>
-  <% if movie[0] > 75 %>
+  <% if movie[0] > 80 %>
   <div class="info-area">
     <p id="runners-up-poster"><%= image_tag(movie[2], alt: movie[1], size: "100x148") %></p>
     <h1><%= link_to movie[1], movie[4] %></h1>

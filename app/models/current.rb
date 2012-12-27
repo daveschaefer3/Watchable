@@ -23,7 +23,12 @@ end
 
       poster_url = movie['posters']['detailed'] ||= ""
       desc = movie['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
-      imdb = "http://www.imdb.com/title/tt"<<"#{movie['alternate_ids']['imdb']}/combined"
+
+      if movie['alternate_ids']
+        imdb = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined"
+      else
+        imdb = "http://www.imdb.com/find?q=#{movie['title']}&s=all"
+      end
 
       @list += [[watchable_score,title,poster_url,desc,imdb]]
     end
@@ -35,6 +40,6 @@ end
 
   def self.sort_order
     @list = @list.sort_by{|critics_score| critics_score}.reverse!
-    # artificially limit it to five films, append: .pop(5).reverse
+    # to artificially limit it to five films, append: .pop(5).reverse
   end
 end

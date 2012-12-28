@@ -2,7 +2,7 @@
 class Upcoming < ActiveRecord::Base
 
   def self.releases(list)
-    response = HTTParty.get("#{MOVIE_LIST}/#{list}.json?apikey=#{KEY}")
+    response = HTTParty.get("#{MOVIE_LIST}/#{list}.json?page_limit=50&apikey=#{KEY}")
     @response = response["movies"]
   end
 

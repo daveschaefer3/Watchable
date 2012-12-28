@@ -2,7 +2,7 @@
 class Disc < ActiveRecord::Base
 
   def self.releases(list)
-    response = HTTParty.get("#{DISC_LIST}/#{list}?apikey=#{KEY}")
+    response = HTTParty.get("#{DISC_LIST}/#{list}?page_limit=50&apikey=#{KEY}")
     @response = response["movies"]
   end
 

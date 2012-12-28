@@ -21,16 +21,16 @@ class Disc < ActiveRecord::Base
   def self.fill_list
     @list = [] # create the movie array
 
-    @response.each do |movie|
-      title = movie['title']
-      imdb = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined"
+    @response.each { |movie|
+      title  = movie['title']
+      imdb   = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined"
       poster = movie['posters']['detailed'] ||= ""
-      desc = movie['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
+      desc   = movie['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
 
       watchable_score = self.ratings(movie['ratings'])
 
-      @list += [[title,imdb,poster,watchable_score,desc]]
-    end
+      @list += [[title, imdb, poster, watchable_score, desc]]
+    }
   end
 
   def self.ratings(movie)

@@ -22,7 +22,7 @@ end
       watchable_score = self.ratings(movie['ratings'])
 
       poster_url = movie['posters']['detailed'] ||= ""
-      desc       = movie['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
+      desc       = movie['critics_consensus'] ||= "No critical consensus available for #{title}"
 
       movie['alternate_ids'] ?
           imdb = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined" :

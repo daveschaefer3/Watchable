@@ -25,7 +25,7 @@ class Disc < ActiveRecord::Base
       title  = movie['title']
       imdb   = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined"
       poster = movie['posters']['detailed'] ||= ""
-      desc   = movie['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
+      desc   = movie['critics_consensus'] ||= "No critical consensus available for #{title}"
 
       watchable_score = self.ratings(movie['ratings'])
 

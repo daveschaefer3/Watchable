@@ -2,7 +2,7 @@
 class Upcoming < ActiveRecord::Base
 
   def self.releases(list)
-    response = HTTParty.get("#{MOVIE_LIST}/#{list}.json?apikey=#{KEY}")
+    response = HTTParty.get("#{MOVIE_LIST}/#{list}.json?page_limit=50&apikey=#{KEY}")
     @response = response["movies"]
   end
 
@@ -21,22 +21,19 @@ class Upcoming < ActiveRecord::Base
   def self.fill_list
     @list = [] # create the movie array
 
-    @response.each do |movie|
-      title = movie['title'] ||= "Missing title"
+    @response.each { |movie|
+      title        = movie['title'] ||= "Missing title"
       release_date = movie['release_dates']['theater']
-      # imdb = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined"
 
-      if movie['alternate_ids']
-        imdb = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined"
-      else
-        imdb = "http://www.imdb.com/find?q=#{movie['title']}&s=all"
-      end
+      movie['alternate_ids'] ?
+          imdb = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined" :
+          imdb = "http://www.imdb.com/find?q=#{movie['title']}&s=all"
 
-      poster = movie['posters']['thumbnail'] ||= ""
+      poster   = movie['posters']['thumbnail'] ||= ""
       audience = movie['ratings']['audience_score'] ||= ""
 
-      @list += [[title,release_date,imdb,poster,audience]]
-    end
+      @list += [[title, release_date, imdb, poster, audience]]
+    }
   end
 
   def self.sort_order

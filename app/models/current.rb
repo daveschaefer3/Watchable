@@ -10,23 +10,26 @@ Current.benchmark("Calculating overall") do
 end
 
   def self.get_response
-    response = HTTParty.get(MOVIE_LIST+'/in_theaters.json?apikey='+KEY)
+    response = HTTParty.get(MOVIE_LIST+'/in_theaters.json?page_limit=50&apikey='+KEY)
     @response = response["movies"]
   end
 
   def self.construct_list
     @list = [] # create the movie array
-    @response.each do |movie|
+    @response.each { |movie|
       title = movie['title'] ||= "Missing title"
 
       watchable_score = self.ratings(movie['ratings'])
 
       poster_url = movie['posters']['detailed'] ||= ""
-      desc = movie['critics_consensus'] ||= "Critics could not reach consensus about #{title}"
-      imdb = "http://www.imdb.com/title/tt"<<"#{movie['alternate_ids']['imdb']}/combined"
+      desc       = movie['critics_consensus'] ||= "No critical consensus available for #{title}"
 
-      @list += [[watchable_score,title,poster_url,desc,imdb]]
-    end
+      movie['alternate_ids'] ?
+          imdb = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined" :
+          imdb = "http://www.imdb.com/find?q=#{movie['title']}&s=all"
+
+      @list += [[watchable_score, title, poster_url, desc, imdb]]
+    }
   end
 
   def self.ratings(movie)
@@ -35,6 +38,6 @@ end
 
   def self.sort_order
     @list = @list.sort_by{|critics_score| critics_score}.reverse!
-    # artificially limit it to five films, append: .pop(5).reverse
+    # to artificially limit it to five films, append: .pop(5).reverse
   end
 end

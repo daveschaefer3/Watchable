@@ -5,7 +5,7 @@ class CurrentsController < ApplicationController
 
   def index
     response.headers['Cache-Control'] = 'public, max-age=72000'
-    @list = Current.in_theatres
+    @list ||= Current.in_theatres
     create_client
   end
 

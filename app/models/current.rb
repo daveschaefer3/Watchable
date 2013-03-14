@@ -17,11 +17,11 @@ end
   def self.construct_list
     @list = [] # create the movie array
     @response.each { |movie|
-      title = movie['title'] ||= "Missing title"
+      title = movie['title'] ||= 'Missing title'
 
       watchable_score = self.ratings(movie['ratings'])
 
-      poster_url = movie['posters']['detailed'] ||= ""
+      poster_url = movie['posters']['detailed'] ||= ''
       desc       = movie['critics_consensus'] ||= "No critical consensus available for #{title}"
 
       movie['alternate_ids'] ?

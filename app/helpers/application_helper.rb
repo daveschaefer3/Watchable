@@ -32,7 +32,7 @@ module ApplicationHelper
 
   def upcoming_date(date)
     if date <= Date.tomorrow
-      "In theatres now!"
+      'In theatres now!'
     else
       dotiw = distance_of_time_in_words(Date.today, date)
       "Opens in #{dotiw}"
@@ -59,16 +59,16 @@ module ApplicationHelper
   end
 
   def trailer_link(movie_title)
-    link_to trailer_logo + "Trailer", trailer_data(movie_title), title: trailer_title
+    link_to trailer_logo + 'Trailer', trailer_data(movie_title), title: trailer_title
   end
 
 # Images
   def upcoming_poster(movie)
-    image_tag(movie[3], alt: movie[0], size: "40x60")
+    image_tag(movie[3], alt: movie[0], size: '40x60')
   end
 
   def disc_poster(url,title)
-    image_tag(url, alt: title, size: "100x148")
+    image_tag(url, alt: title, size: '100x148')
   end
 
   def favicon

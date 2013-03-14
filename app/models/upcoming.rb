@@ -22,7 +22,7 @@ class Upcoming < ActiveRecord::Base
     @list = [] # create the movie array
 
     @response.each { |movie|
-      title        = movie['title'] ||= "Missing title"
+      title        = movie['title'] ||= 'Missing title'
       release_date = movie['release_dates']['theater']
 
       movie['alternate_ids'] ?

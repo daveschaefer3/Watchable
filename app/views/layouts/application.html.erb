@@ -28,10 +28,10 @@ We only ever wanted to try
 <head>
   <%= yield :head %>
   <link rel="canonical" href="http://watchable.heroku.com/" itemprop="url"/>
-  <%= stylesheet_link_tag "application" %>
+  <%= stylesheet_link_tag 'application' %>
   <script type="text/javascript" src="http://use.typekit.com/gqd6bwq.js"></script>
   <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag 'application' %>
   <meta name="viewport" content="width=580" />
   <link rel="shortcut icon" href="<%= "data:image/png;base64,#{favicon}" %>" />
 </head>

@@ -1,7 +1,7 @@
 # Connect to Rotten Tomatoes and squish out the in-theatre tomato juice
 class Current < ActiveRecord::Base
 
-Current.benchmark("Calculating overall") do
+Current.benchmark('Calculating overall') do
   def self.in_theatres
     self.get_response
     self.construct_list
@@ -11,7 +11,7 @@ end
 
   def self.get_response
     response = HTTParty.get(MOVIE_LIST+'/in_theaters.json?page_limit=50&apikey='+KEY)
-    @response = response["movies"]
+    @response = response['movies']
   end
 
   def self.construct_list

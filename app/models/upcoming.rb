@@ -3,17 +3,17 @@ class Upcoming < ActiveRecord::Base
 
   def self.releases(list)
     response = HTTParty.get("#{MOVIE_LIST}/#{list}.json?page_limit=50&apikey=#{KEY}")
-    @response = response["movies"]
+    @response = response['movies']
   end
 
   def self.opening_movies_list
-    self.releases("opening")
+    self.releases('opening')
     self.fill_list
     self.sort_order
   end
 
   def self.upcoming_movies_list
-    self.releases("upcoming")
+    self.releases('upcoming')
     self.fill_list
     self.sort_order
   end
@@ -29,8 +29,8 @@ class Upcoming < ActiveRecord::Base
           imdb = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined" :
           imdb = "http://www.imdb.com/find?q=#{movie['title']}&s=all"
 
-      poster   = movie['posters']['thumbnail'] ||= ""
-      audience = movie['ratings']['audience_score'] ||= ""
+      poster   = movie['posters']['thumbnail'] ||= ''
+      audience = movie['ratings']['audience_score'] ||= ''
 
       @list += [[title, release_date, imdb, poster, audience]]
     }

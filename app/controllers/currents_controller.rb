@@ -11,6 +11,6 @@ class CurrentsController < ApplicationController
 
 private
   def create_client
-    @client ||= YouTubeIt::Client.new(dev_key: "AI39si48veFGm5Z9I60P9ShD8EQh9VI7m5ba_DDYPzHUiTp9kEgHENcvEbxGTsnGkg-3PD9VI5yfaDFJT0EsuwnyCYuhaFFNKQ")
+    @client ||= YouTubeIt::Client.new(dev_key: 'AI39si48veFGm5Z9I60P9ShD8EQh9VI7m5ba_DDYPzHUiTp9kEgHENcvEbxGTsnGkg-3PD9VI5yfaDFJT0EsuwnyCYuhaFFNKQ')
   end
 end

@@ -3,17 +3,17 @@ class Disc < ActiveRecord::Base
 
   def self.releases(list)
     response = HTTParty.get("#{DISC_LIST}/#{list}?page_limit=50&apikey=#{KEY}")
-    @response = response["movies"]
+    @response = response['movies']
   end
 
   def self.current_releases_list
-    self.releases("current_releases")
+    self.releases('current_releases')
     self.fill_list
     self.sort_order
   end
 
   def self.new_releases_list
-    self.releases("new_releases")
+    self.releases('new_releases')
     self.fill_list
     self.sort_order
   end
@@ -24,7 +24,7 @@ class Disc < ActiveRecord::Base
     @response.each { |movie|
       title  = movie['title']
       imdb   = "http://www.imdb.com/title/tt#{movie['alternate_ids']['imdb']}/combined"
-      poster = movie['posters']['detailed'] ||= ""
+      poster = movie['posters']['detailed'] ||= ''
       desc   = movie['critics_consensus'] ||= "No critical consensus available for #{title}"
 
       watchable_score = self.ratings(movie['ratings'])

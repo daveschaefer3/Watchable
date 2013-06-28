@@ -1,37 +1,36 @@
 $theatre_red: #811f1e;
 $creme: #FCF7EF;
-$border_color : #000;
+$border_color: #000;
+
 @mixin radial-gradient($r1,$g1,$b1,$r2,$g2,$b2) {
+  background-image: radial-gradient(50% 0%, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
   background-image: -webkit-gradient(radial, 50% 100%,100,50% -50%,100, to(rgb($r1, $g1, $b1)), from(rgb($r2, $g2, $b2)));
   background-image: -webkit-radial-gradient(50% 0%, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
-  background-image: -moz-radial-gradient(50% 0%, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
-  background-image: -o-radial-gradient(50% 0%, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
-  background-image: -ms-radial-gradient(50% 0%, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
-  background-image: radial-gradient(50% 0%, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
 }
 @mixin linear-gradient($r1,$g1,$b1,$r2,$g2,$b2) {
+  background-image: linear-gradient(top, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
   background-image: -webkit-gradient(linear, left top, left bottom, to(rgb($r1, $g1, $b1)), from(rgb($r2, $g2, $b2)));
   background-image: -webkit-linear-gradient(top, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
-  background-image: -moz-linear-gradient(top, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
-  background-image: -o-linear-gradient(top, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
-  background-image: -ms-linear-gradient(top, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
-  background-image: linear-gradient(top, rgb($r1, $g1, $b1), rgb($r2, $g2, $b2));
 }
+
 @mixin light-box-shadow($rad,$pct){
 -moz-box-shadow: 0 0 $rad lighten($theatre_red, $pct);
 -webkit-box-shadow: 0 0 $rad lighten($theatre_red, $pct);
 box-shadow: 0 0 $rad lighten($theatre_red, $pct);
 }
+
 @mixin box-shadow($rad,$color){
 -moz-box-shadow: 0 0 $rad $color;
 -webkit-box-shadow: 0 0 $rad $color;
 box-shadow: 0 0 $rad $color;
 }
+
 @mixin border-radius($px) {
   -webkit-border-radius: $px;
   -moz-border-radius: $px;
   border-radius: $px;
 }
+
 @mixin padding-margin($padding, $margin) {
   padding: $padding;
   margin: $margin;
